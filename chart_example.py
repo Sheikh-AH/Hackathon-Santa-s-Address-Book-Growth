@@ -14,7 +14,7 @@ def index():
     country = "United Kingdom"
     data = get_data_of_country(country)
 
-    return render_template('chartexample.html',
+    return render_template('./templates/chartexample.html',
                            title=country,
                            labels=list(data["Year"]),
                            data=list(data["Population (historical)"]))
