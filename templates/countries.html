@@ -28,13 +28,33 @@
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: chartData,
-            }]
+            }],
         };
 
         const config = {
             type: 'line',
             data: data,
-            options: { maintainAspectRatio: false }
+            options: {
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Population',
+                            align: 'center',
+                            padding: 10
+                        }
+                    },
+
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year',
+                            align: 'center',
+                            padding: 10
+                        }
+                    }
+                }
+            }
         };
 
         const myChart = new Chart(
