@@ -13,7 +13,6 @@ def get_data_of_country(country_name: str) -> pd.DataFrame:
 
 def get_single_year_growth(df: pd.DataFrame) -> pd.DataFrame:
     """Provide summary statistics for growth."""
-    print(len(df))
     last_year = df.iloc[-1]
     previous_year = df.iloc[-2]
     growth = last_year['Population (historical)'] - \
