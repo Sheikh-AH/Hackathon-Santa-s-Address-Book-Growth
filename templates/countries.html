@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>{{ title }}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS: Your own styles go here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Chart.js Example</title>
 </head>
 <body>
-    <div>
+    <div class="chart">
         <canvas id="myChart"></canvas>
     </div>
 
@@ -21,13 +28,33 @@
                 backgroundColor: 'rgb(255, 99, 132)',
                 borderColor: 'rgb(255, 99, 132)',
                 data: chartData,
-            }]
+            }],
         };
 
         const config = {
             type: 'line',
             data: data,
-            options: { maintainAspectRatio: false }
+            options: {
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Population',
+                            align: 'center',
+                            padding: 10
+                        }
+                    },
+
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Year',
+                            align: 'center',
+                            padding: 10
+                        }
+                    }
+                }
+            }
         };
 
         const myChart = new Chart(
