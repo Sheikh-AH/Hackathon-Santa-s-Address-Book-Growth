@@ -27,8 +27,17 @@
       </div>
     </nav>
 
-    <div class="chart">
-        <canvas id="myChart"></canvas>
+    <div class="data">
+        <div class = "chart-section">
+            <canvas id="myChart" style="width: 100%;height: 100%; padding-right: 4%;"></canvas>
+        </div>
+        <div class = "data-section">
+            <h2>Year-on-Year Growth:</h2>
+            <p>{{growth_stats[0]}}</p>
+            <h2>5 Year Growth Trend: </h2>
+            <p>{{growth_stats[1]}}</p>
+        </div>
+        
     </div>
 
     <!-- Store Flask data as a JavaScript variable -->
@@ -43,6 +52,7 @@
                 label: 'Population ({{title}})',
                 backgroundColor: 'rgb(234, 70, 48)',
                 borderColor: 'rgb(187, 37, 40)',
+                pointRadius: 0,
                 data: chartData,
             }],
         };
@@ -72,10 +82,11 @@
                             padding: 10
                         },
                         ticks: {
-                            maxTicksLimit: 25                        },
+                            maxTicksLimit: 25                       },
                         
                     }
                 }
+
             }
         };
 
@@ -84,8 +95,7 @@
             config
         );
     </script>
-    <h2>Year-on-Year Growth: {{growth_stats[0]}}</h2>
-    <h2>5 Year Growth Trend: {{growth_stats[1]}}</h2>
+   
 
 </body>
 </html>
