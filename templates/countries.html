@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>Chart.js Example</title>
+    <title>{{ title }}</title>
 </head>
 <body>
     <div>
@@ -35,5 +35,8 @@
             config
         );
     </script>
+    <h2>Year-on-Year Growth: {{growth_stats[0]}}</h2>
+    <h2>5 Year Growth Trend: {{growth_stats[1]}}</h2>
+
 </body>
 </html>
