@@ -30,7 +30,7 @@ def get_data_from_s3(config: _Environ) -> S3Client:
 
 def get_data_of_country(df_pop: dict, country: str) -> pd.DataFrame:
     """Gets all rows associated with country."""
-    df = df_pop[df_pop["Year"] > 1900]
+    df = df_pop[df_pop["Year"] >= 1900]
     return df[df["Entity"] == country]
 
 

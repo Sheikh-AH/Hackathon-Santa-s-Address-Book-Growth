@@ -67,11 +67,19 @@
             type: 'line',
             data: data,
             options: {
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
                 scales: {
                     y: {
                         title: {
                             display: true,
-                            text: 'Population',
+                            text: 'Population (in millions)',
                             align: 'center',
                             padding: 10
                         },
@@ -87,13 +95,13 @@
 
                     x: {
                         title: {
-                            display: true,
+                            display: false,
                             text: 'Year',
                             align: 'center',
                             padding: 10
                         },
                         ticks: {
-                            maxTicksLimit: 25,
+                            maxTicksLimit: 13,
                             font: {
                                 size:15,
                                 family:"Georgia"
@@ -104,6 +112,7 @@
                 },
                 plugins: {
                 legend: {
+                    display: false,
                     labels: {
                         font: {
                             family: 'Georgia',

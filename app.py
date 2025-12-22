@@ -27,7 +27,7 @@ def country_page(country_name):
     return render_template('countries.html',
                            title=country_name,
                            labels=list(data["Year"]),
-                           data=list(data["Population (historical)"]),
+                           data=list(data["Population (historical)"]/1000000),
                            growth_stats=(growth, avg_growth))
 
 
