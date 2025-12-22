@@ -1,4 +1,3 @@
-
 """Application for growth in different metric for countries."""
 
 from os import environ
@@ -7,7 +6,7 @@ from flask import Flask, render_template
 
 import pandas as pd
 
-from population_reader import get_data_of_country, get_single_year_growth
+from population_reader import get_data_of_country, get_single_year_growth, get_5year_avg
 
 app = Flask(__name__)
 
@@ -24,11 +23,13 @@ def home():
 def country_page(country_name):
     data = get_data_of_country(country_name)
     growth = get_single_year_growth(data)
+    avg_growth = get_5year_avg(data)
 
     return render_template('countries.html',
                            title=country_name,
                            labels=list(data["Year"]),
-                           data=list(data["Population (historical)"]))
+                           data=list(data["Population (historical)"]),
+                           growth_stats=(growth, avg_growth))
 
 
 if __name__ == "__main__":
