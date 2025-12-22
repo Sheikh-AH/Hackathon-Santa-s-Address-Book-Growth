@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
 <div class="world-map">
     <div class="map-container">
         <!--
@@ -979,39 +989,8 @@
     </div>
 </div>
 
-<script>
-document.querySelectorAll('.world-map svg path').forEach(path => {
-  if (!path.id) return; // skip circles or decorative paths
+<script src="/static/script.js"></script>
 
-  // Tooltip
-  const label = path.getAttribute('name') || path.id;
-  const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-  title.textContent = label;
-  path.appendChild(title);
-
-  // Click
-  path.addEventListener('click', () => {
-    // Example: navigate to country page if it exists
-    const url = `/countries/${path.id}.html`;
-    // Only navigate if the page exists (or for testing, open alert)
-    // alert(`Would go to: ${url}`);
-    window.location.href = url;
-  });
-});
-</script>
-
-<style>
-#world-map path {
-  fill: #ececec;
-  stroke: black;
-  stroke-width: 0.2;
-  cursor: pointer;
-  transition: fill 0.2s ease;
-  pointer-events: all;
-}
-
-#world-map path:hover {
-  fill: #4da3ff;
-}
-</style>
+</body>
+</html>
 

@@ -1,4 +1,4 @@
-.world-map svg path {
+#world-map svg path {
   fill: #ececec;
   stroke: black;
   stroke-width: 0.2;
@@ -6,11 +6,24 @@
   transition: fill 0.2s ease;
 }
 
-.world-map svg path:hover {
+#world-map svg path:hover {
   fill: #4da3ff;
 }
 
-.chart{
-  width:70vh;
-  height:70vh;
+.map-tooltip {
+  position: absolute;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.chart {
+  width: 70vh;
+  height: 70vh;
 }
