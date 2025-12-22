@@ -9,3 +9,8 @@
 .world-map svg path:hover {
   fill: #4da3ff;
 }
+
+.chart{
+  width:30%;
+  height:30%;
+}

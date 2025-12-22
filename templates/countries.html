@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS: Your own styles go here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Chart.js Example</title>
 </head>
 <body>
-    <div>
+    <div class="chart">
         <canvas id="myChart"></canvas>
     </div>
 
