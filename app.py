@@ -4,12 +4,32 @@ from os import environ
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template
 
+import pandas as pd
+
+from population_reader import remove_before_1900, get_data_of_country
+
 app = Flask(__name__)
 
+df = pd.read_csv("./resources/population.csv")
+all_countries = remove_before_1900(df)
 
-@app.route('/')
-def home():
-    return render_template('index.html')
+# JSON Endpoints
+
+
+@app.route('/api/country/<country_name>')
+def get_country(country_name):
+    # Get all data for specified country
+    country_data = all_countries[all_countries['Entity'] == country_name]
+    country_data = country_data.to_dict('records')
+
+    return country_data
+
+
+@app.route('/country/<country_name>')
+def country_page(country_name):
+    country_data = all_countries[all_countries['Entity'] == country_name]
+    country_data = country_data.to_dict('records')
+    return country_data
 
 
 if __name__ == "__main__":
