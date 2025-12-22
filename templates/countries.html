@@ -12,6 +12,21 @@
     <title>Chart.js Example</title>
 </head>
 <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Christmas Investigative Services</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
     <div class="chart">
         <canvas id="myChart"></canvas>
     </div>
@@ -20,13 +35,14 @@
     <script>
         const labels = JSON.parse('{{ labels | tojson | safe }}');
         const chartData = JSON.parse('{{ data | tojson | safe }}');
+        const img = new Image();
 
         const data = {
             labels: labels,
             datasets: [{
                 label: 'Population ({{title}})',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
+                backgroundColor: 'rgb(234, 70, 48)',
+                borderColor: 'rgb(187, 37, 40)',
                 data: chartData,
             }],
         };
@@ -42,8 +58,11 @@
                             text: 'Population',
                             align: 'center',
                             padding: 10
-                        }
+                        },
+                        beginAtZero:true,
+
                     },
+                    
 
                     x: {
                         title: {
@@ -51,7 +70,10 @@
                             text: 'Year',
                             align: 'center',
                             padding: 10
-                        }
+                        },
+                        ticks: {
+                            maxTicksLimit: 25                        },
+                        
                     }
                 }
             }

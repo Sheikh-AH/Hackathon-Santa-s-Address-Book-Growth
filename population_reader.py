@@ -4,7 +4,7 @@ import pandas as pd
 
 def remove_before_1900(df: pd.DataFrame) -> None:
     '''removes all data from a year before 1900'''
-    return df[df["Year"] > 1900]
+    return df[df["Year"] >= 1900]
 
 
 def get_data_of_country(country_name) -> pd.DataFrame:
