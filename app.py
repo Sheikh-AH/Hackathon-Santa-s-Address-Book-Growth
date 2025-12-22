@@ -15,7 +15,7 @@ all_countries = remove_before_1900(df)
 # JSON Endpoints
 
 
-@app.route('/api/country/<country_name>')
+@app.route('/api/countries/<country_name>')
 def get_country(country_name):
     # Get all data for specified country
     country_data = all_countries[all_countries['Entity'] == country_name]
@@ -32,11 +32,11 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/country/<country_name>')
+@app.route('/countries/<country_name>')
 def country_page(country_name):
     country_data = all_countries[all_countries['Entity'] == country_name]
     country_data = country_data.to_dict('records')
-    return country_data
+    return render_template('countries.html', name=country_name, data=country_data)
 
 
 if __name__ == "__main__":
