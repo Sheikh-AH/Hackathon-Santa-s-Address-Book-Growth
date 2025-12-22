@@ -1,18 +1,17 @@
 """Application for growth in different metric for countries."""
 
-from os import environ
+from os import environ as ENV
 from dotenv import load_dotenv
 from flask import Flask, render_template
 
 import pandas as pd
 
-from population_reader import get_data_of_country, get_single_year_growth, get_5year_avg
+from population_reader import get_data_from_s3, get_data_of_country, get_single_year_growth, get_5year_avg
 
 app = Flask(__name__)
 
 
 # Template Endpoints (HTML Pages)
-
 
 @app.route('/')
 def home():
@@ -21,9 +20,9 @@ def home():
 
 @app.route('/countries/<country_name>')
 def country_page(country_name):
-    data = get_data_of_country(country_name)
-    growth = get_single_year_growth(data)
-    avg_growth = get_5year_avg(data)
+    data = get_data_of_country(df_population, country_name)
+    growth = get_single_year_growth(df_population, country_name)
+    avg_growth = get_5year_avg(df_population, country_name)
 
     return render_template('countries.html',
                            title=country_name,
@@ -33,4 +32,9 @@ def country_page(country_name):
 
 
 if __name__ == "__main__":
+
+    load_dotenv()
+    Dataframes = get_data_from_s3(ENV)
+    df_population = Dataframes['population']
+
     app.run(debug=True, host='0.0.0.0', port=5000)
