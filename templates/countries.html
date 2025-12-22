@@ -13,9 +13,9 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Christmas Investigative Services</a>
+        <a class="navbar-brand" href="#" style="color: white;">Christmas Investigative Services</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -32,12 +32,11 @@
             <canvas id="myChart" style="width: 100%;height: 100%; padding-right: 4%;"></canvas>
         </div>
         <div class = "data-section">
-            <h2>Year-on-Year Growth:</h2>
-            <p>{{growth_stats[0]}}</p>
-            <h2>5 Year Growth Trend: </h2>
-            <p>{{growth_stats[1]}}</p>
+                <h2>Year-on-Year Growth:</h2>
+                <p>{{growth_stats[0]}}</p>
+                <h2>5 Year Growth Trend: </h2>
+                <p>{{growth_stats[1]}}</p>
         </div>
-        
     </div>
 
     <footer class="text-center py-4 mt-5">
@@ -48,6 +47,7 @@
 
     <!-- Store Flask data as a JavaScript variable -->
     <script>
+        Chart.defaults.color = "#FFF"
         const labels = JSON.parse('{{ labels | tojson | safe }}');
         const chartData = JSON.parse('{{ data | tojson | safe }}');
         const img = new Image();
@@ -56,8 +56,8 @@
             labels: labels,
             datasets: [{
                 label: 'Population ({{title}})',
-                backgroundColor: 'rgb(234, 70, 48)',
-                borderColor: 'rgb(187, 37, 40)',
+                backgroundColor: 'rgb(248, 178, 41)',
+                borderColor: 'rgb(248, 178, 41)',
                 pointRadius: 0,
                 data: chartData,
             }],
@@ -75,10 +75,15 @@
                             align: 'center',
                             padding: 10
                         },
-                        beginAtZero:true,
-
+                        ticks: {
+                            maxTicksLimit: 25,
+                            font: {
+                                size:15,
+                                family:"Georgia"
+                            }
+                        },
                     },
-                    
+            
 
                     x: {
                         title: {
@@ -88,11 +93,29 @@
                             padding: 10
                         },
                         ticks: {
-                            maxTicksLimit: 25                       },
+                            maxTicksLimit: 25,
+                            font: {
+                                size:15,
+                                family:"Georgia"
+                            }
+                        },
                         
                     }
-                }
-
+                },
+                plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            family: 'Georgia',
+                            size: 12,      
+                            style: 'normal',
+                            weight: 'bold',  
+                            lineHeight: 1.2, 
+                        },
+                    },
+                },
+            },
+        
             }
         };
 
@@ -100,6 +123,37 @@
             document.getElementById('myChart'),
             config
         );
+
+
+        // SNOW ANIMATION
+        let numSnow = 30
+        for(let i = 0; i < numSnow; i++){
+            let randomTime = (Math.random() * 2000)
+            setTimeout(createSnow, randomTime)
+        }
+        
+        function createSnow(){
+            let id = null;
+            const elem = document.body;
+            const flake = document.createElement("div")
+            flake.classList.add("snow")
+            let start_x = (Math.random() * screen.width)
+        
+            elem.appendChild(flake)
+            flake.animate(
+            [
+                // keyframes
+                { transform: `translateX(${start_x}px) translateY(0px)` },
+                { transform: `translateX(${start_x + 100}px) translateY(1000px)` },
+            ],
+            {
+                // timing options
+                duration: 2000,
+                iterations: Infinity,
+            },
+            );
+        }
+
     </script>
    
 

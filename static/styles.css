@@ -10,6 +10,12 @@
   fill: #4da3ff;
 }
 
+body{
+  background-color: #004733;
+  color:white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 
 .data{
   width:100%;
@@ -21,6 +27,7 @@
   font-family: Arial, Helvetica, sans-serif;
   gap: 0.5%;
   padding:0.5%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .data-section{
@@ -28,14 +35,33 @@
   height: 40vh;
   border-style: solid;
   border-color: lightgray;
-  padding:2.5%
+  padding:2.5%;
+  flex-grow: 1;
+  max-width: 40vh;
+  background-color: #146B3A;
+
 }
 
 .chart-section{
-  width: 100vh;
+  min-width: 40vh;
+  width:60vh;
   height: 40vh;
   border-style: solid;
   border-color: lightgray;
   flex-grow: 1;
 }
 
+nav{
+  background-color: #004733;
+  color: white;
+}
+
+.snow{
+  width: 0.5vh;
+  height: 0.5vh;
+  background-color: white;
+  position: absolute;
+  top: -0.5vh;
+  left:-0.5vh;
+  border-radius: 50%;
+}
