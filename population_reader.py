@@ -34,10 +34,12 @@ def get_maxmin_growth(df: pd.DataFrame):
     """Provide min/max growth stats for a country."""
     df = df.sort_values('Year')
     df['Growth'] = df['Population (historical)'].diff()
+
     max_year = df.loc[df['Growth'].idxmax()]['Year']
     max_growth = df.loc[df['Growth'].idxmax()]['Growth']
     min_year = df.loc[df['Growth'].idxmin()]['Year']
     min_growth = df.loc[df['Growth'].idxmin()]['Growth']
+
     return max_year, max_growth, min_year, min_growth
 
 
