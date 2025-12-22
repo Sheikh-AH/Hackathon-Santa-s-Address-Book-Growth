@@ -3,6 +3,7 @@
 from os import environ
 from dotenv import load_dotenv
 from flask import Flask, jsonify, render_template
+
 import pandas as pd
 
 from population_reader import remove_before_1900, get_data_of_country
