@@ -13,17 +13,6 @@ app = Flask(__name__)
 df = pd.read_csv("./resources/population.csv")
 all_countries = remove_before_1900(df)
 
-# JSON Endpoints
-
-
-# @app.route('/api/countries/<country_code>')
-# def get_country(country_code):
-#     # Get all data for specified country
-#     country_data = all_countries[all_countries['code'] == country_code]
-#     country_data = country_data.to_dict('records')
-
-#     return country_data
-
 
 # Template Endpoints (HTML Pages)
 
