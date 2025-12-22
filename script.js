@@ -1,18 +1,52 @@
-// Custom JavaScript: This is where you add interactivity to your website
+const labels = JSON.parse('{{ labels | tojson | safe }}');
+const chartData = JSON.parse('{{ data | tojson | safe }}');
+const img = new Image();
 
-// This event listener waits for the entire HTML page to load before running any code
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Page loaded!");
+const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Population ({{title}})',
+        backgroundColor: 'rgb(234, 70, 48)',
+        borderColor: 'rgb(187, 37, 40)',
+        pointRadius: 0,
+        data: chartData,
+    }],
+};
 
-  // We find the button using its unique ID from the HTML
-  const ctaButton = document.getElementById("cta-button");
+const config = {
+    type: 'line',
+    data: data,
+    options: {
+        scales: {
+            y: {
+                title: {
+                    display: true,
+                    text: 'Population',
+                    align: 'center',
+                    padding: 10
+                },
+                beginAtZero:true,
 
-  // Check if the button exists on the page before adding an event listener
-  if (ctaButton) {
-    // This function runs whenever the button is clicked
-    ctaButton.addEventListener("click", function () {
-      console.log("CTA button clicked");
-      alert("Welcome! This is your starting point.");
-    });
-  }
-});
+            },
+            
+
+            x: {
+                title: {
+                    display: true,
+                    text: 'Year',
+                    align: 'center',
+                    padding: 10
+                },
+                ticks: {
+                    maxTicksLimit: 25                       },
+                
+            }
+        }
+
+    }
+};
+
+const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+);
