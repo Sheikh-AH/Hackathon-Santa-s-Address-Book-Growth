@@ -1,16 +1,13 @@
-'''file for reading and filtering population data'''
+"""Filtering and processing data"""
+
 import pandas as pd
 
 
-def remove_before_1900(df: pd.DataFrame) -> None:
-    '''removes all data from a year before 1900'''
-    return df[df["Year"] > 1900]
-
-
 def get_data_of_country(country_name: str) -> pd.DataFrame:
-    '''gets all rows associated with country'''
+    """Gets all rows associated with country."""
     df = pd.read_csv("./resources/population.csv")
-    df = remove_before_1900(df)
+    df = df[df["Year"] > 1900]
+
     return df[df["Entity"] == country_name]
 
 
@@ -20,6 +17,7 @@ def get_single_year_growth(df: pd.DataFrame) -> pd.DataFrame:
     previous_year = df.iloc[-2]
     growth = last_year['Population (historical)'] - \
         previous_year['Population (historical)']
+
     return growth
 
 
@@ -33,6 +31,7 @@ def get_5year_avg(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def get_maxmin_growth(df: pd.DataFrame):
+    """Provide min/max growth stats for a country."""
     df = df.sort_values('Year')
     df['Growth'] = df['Population (historical)'].diff()
     max_year = df.loc[df['Growth'].idxmax()]['Year']
@@ -45,5 +44,7 @@ def get_maxmin_growth(df: pd.DataFrame):
 if __name__ == "__main__":
     df = get_data_of_country('China')
     a = get_5year_avg(df)
+    s = get_single_year_growth(df)
     maxy, maxg, miny, ming = get_maxmin_growth(df)
     print(maxy, maxg, miny, ming)
+    print(s)
