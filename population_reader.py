@@ -6,7 +6,7 @@ import pandas as pd
 def get_data_of_country(country_name: str) -> pd.DataFrame:
     """Gets all rows associated with country."""
     df = pd.read_csv("./resources/population.csv")
-    df = df[df["Year"] >= 1900]
+    df = df[df["Year"] > 1900]
 
     return df[df["Entity"] == country_name]
 
@@ -42,9 +42,10 @@ def get_maxmin_growth(df: pd.DataFrame):
 
 
 if __name__ == "__main__":
-    df = get_data_of_country('China')
-    a = get_5year_avg(df)
-    s = get_single_year_growth(df)
-    maxy, maxg, miny, ming = get_maxmin_growth(df)
-    print(maxy, maxg, miny, ming)
-    print(s)
+    pass
+    # df = get_data_of_country('China')
+    # a = get_5year_avg(df)
+    # s = get_single_year_growth(df)
+    # maxy, maxg, miny, ming = get_maxmin_growth(df)
+    # print(maxy, maxg, miny, ming)
+    # print(s)

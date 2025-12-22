@@ -6,7 +6,7 @@ from population_reader import get_data_of_country
 project_root = os.path.dirname(__file__)
 template_path = os.path.join(project_root, './templates/')
 
-app = Flask(__name__)
+app = Flask(__name__, template_path)
 
 
 @app.route("/")
