@@ -37,7 +37,8 @@ def home():
 def country_page(country_name):
     data = get_data_of_country(country_name)
     growth = get_single_year_growth(country_name)
-    avg_growth = get_trend_growth(country_name)
+    avg_growth = get_trend_growth(
+        country_name)
 
     return render_template('countries.html',
                            title=country_name,

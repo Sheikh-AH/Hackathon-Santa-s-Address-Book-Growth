@@ -33,6 +33,9 @@ def get_trend_growth(country_name) -> pd.DataFrame:
     df = df[df["Entity"] == country_name].sort_values('Year').tail(6)
     df['growth'] = df['Population (historical)'].diff()
     avg_growth = df['growth'].iloc[1:].mean()
+    # max_row = df.loc[df['growth'].idxmax()][['Year', 'growth']]
+    # min_row = df.loc[df['growth'].idxmin()]
+
     return avg_growth
 
 
