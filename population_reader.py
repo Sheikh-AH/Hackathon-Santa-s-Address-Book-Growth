@@ -83,16 +83,28 @@ def get_access_to_internet(df_internet: pd.DataFrame, country: str) -> pd.DataFr
     return df['Individuals using the Internet (% of population)'].values[0]
 
 
+def get_gdp_per_capita(df_gdp: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return GDP per capita for last 10 years."""
+    df = df_gdp[(df_gdp['Entity'] == country)].tail(10)
+    return df['GDP per capita']
+
+
 if __name__ == "__main__":
     load_dotenv()
     data = get_data_from_s3(ENV)
     df_elec = data['electricity']
     df_pop = data['population']
     df_internet = data['internet']
+    df_gdp = data['gdp']
+    df_lit = data['literacy']
 
-    stat = get_access_to_electricity(df_elec, 'Afghanistan')
-    print(f"Access to electricity: {stat}%")
-    stat = get_access_to_internet(df_internet, 'Afghanistan')
-    print(f"Access to internet  : {stat}%")
+    # stat = get_access_to_electricity(df_elec, 'Afghanistan')
+    # print(f"Access to electricity: {stat}%")
+    # stat = get_access_to_internet(df_internet, 'Afghanistan')
+    # print(f"Access to internet  : {stat}%")
+    # stat = get_gdp_per_capita(df_gdp, 'Afghanistan')
+    # print(stat)
+    stat = get_literacy_rate(df_lit, 'Afghanistan')
+    print(f"Literacy rate: {stat}%")
 
-    print(df_internet.tail())
+    # print(df_lit.head())
