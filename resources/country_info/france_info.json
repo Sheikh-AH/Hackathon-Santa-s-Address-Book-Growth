@@ -1,0 +1,36 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/fr.png",
+        "svg": "https://flagcdn.com/fr.svg",
+        "alt": "The flag of France is composed of three equal vertical bands of blue, white and red."
+    },
+    "currencies": {
+        "EUR": {
+            "name": "Euro",
+            "symbol": "\u20ac"
+        }
+    },
+    "capital": [
+        "Paris"
+    ],
+    "languages": {
+        "fra": "French"
+    },
+    "area": 543908.0,
+    "timezones": [
+        "UTC-10:00",
+        "UTC-09:30",
+        "UTC-09:00",
+        "UTC-08:00",
+        "UTC-04:00",
+        "UTC-03:00",
+        "UTC+01:00",
+        "UTC+02:00",
+        "UTC+03:00",
+        "UTC+04:00",
+        "UTC+05:00",
+        "UTC+10:00",
+        "UTC+11:00",
+        "UTC+12:00"
+    ]
+}

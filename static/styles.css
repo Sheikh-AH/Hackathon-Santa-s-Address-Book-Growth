@@ -1,4 +1,4 @@
-#world-map svg path {
+#world-map path {
   fill: #ececec;
   stroke: black;
   stroke-width: 0.2;
@@ -6,8 +6,8 @@
   transition: fill 0.2s ease;
 }
 
-#world-map svg path:hover {
-  fill: #4da3ff;
+#world-map path:hover {
+  fill: #e74242;
 }
 
 .map-tooltip {
@@ -21,6 +21,20 @@
   pointer-events: none;
   z-index: 1000;
   white-space: nowrap;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+svg {
+  width: 100vw;
+  height: 100vh;
+  display: block;
 }
 
 .chart {
@@ -48,7 +62,7 @@ body{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.data-section{
+.data-section, .info-section{
   width: 40vh;
   height: 40vh;
   padding:2.5%;
@@ -56,6 +70,13 @@ body{
   max-width: 40vh;
   background-color: #146B3A;
 
+}
+
+.info-section img {
+  height: 30px;
+  width: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .chart-section{

@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/cn.png",
+        "svg": "https://flagcdn.com/cn.svg",
+        "alt": "The flag of China has a red field. In the canton are five yellow five-pointed stars \u2014 a large star and four smaller stars arranged in a vertical arc on the fly side of the large star."
+    },
+    "currencies": {
+        "CNY": {
+            "name": "Chinese yuan",
+            "symbol": "\u00a5"
+        }
+    },
+    "capital": [
+        "Beijing"
+    ],
+    "languages": {
+        "zho": "Chinese"
+    },
+    "area": 9706961.0,
+    "timezones": [
+        "UTC+08:00"
+    ]
+}

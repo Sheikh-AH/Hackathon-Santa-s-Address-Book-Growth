@@ -1,0 +1,24 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/by.png",
+        "svg": "https://flagcdn.com/by.svg",
+        "alt": "The flag of Belarus features a vertical band, with a white and red ornamental pattern, spanning about one-fifth the width of the field on the hoist side. Adjoining the vertical band are two horizontal bands of red and green, with the red band twice the height of the green band."
+    },
+    "currencies": {
+        "BYN": {
+            "name": "Belarusian ruble",
+            "symbol": "Br"
+        }
+    },
+    "capital": [
+        "Minsk"
+    ],
+    "languages": {
+        "bel": "Belarusian",
+        "rus": "Russian"
+    },
+    "area": 207600.0,
+    "timezones": [
+        "UTC+03:00"
+    ]
+}
