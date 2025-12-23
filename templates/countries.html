@@ -48,6 +48,9 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="ice-box">
                     <h5>Gift Demographic: Literacy</h5>
+                    <div>
+                        <canvas id="literacyChart"></canvas>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
@@ -59,13 +62,17 @@
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="ice-box">
                     <h5>Gift Demographic: Electricity</h5>
-                    <p>Electricity donut</p>
+                    <div>
+                        <canvas id="electricityChart"></canvas>
+                    </div>>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="ice-box">
                     <h5>Gift Demographic: Internet</h5>
-                    <p>Internet donut</p>
+                    <div>
+                        <canvas id="internetChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,6 +236,123 @@
             literacyConfig
         );
 
+        //internet chart
+    
+        const internetInfo = JSON.parse('{{internet_info | tojson | safe}}')
+
+        const internetData = {
+            labels: internetInfo.labels,
+            datasets: [{
+                label: internetInfo.title,
+                backgroundColor: ['#EA4630','#BB2528'],
+                borderColor: 'rgb(248, 178, 41)',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: internetInfo.data,
+            }],
+        };
+
+        const internetConfig = {
+            type: 'doughnut',
+            data: internetData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const internetChart = new Chart(
+            document.getElementById('internetChart'),
+            internetConfig
+        );
+
+        // electricity chart
+
+        const electricityInfo = JSON.parse('{{electricity_info | tojson | safe}}')
+
+        const electricityData = {
+            labels: electricityInfo.labels,
+            datasets: [{
+                label: electricityInfo.title,
+                backgroundColor: ['#EA4630','#BB2528'],
+                borderColor: 'rgb(248, 178, 41)',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: electricityInfo.data,
+            }],
+        };
+
+        const electricityConfig = {
+            type: 'doughnut',
+            data: electricityData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const electricityChart = new Chart(
+            document.getElementById('electricityChart'),
+            electricityConfig
+        );
 
         // SNOW ANIMATION
         let numSnow = 30
