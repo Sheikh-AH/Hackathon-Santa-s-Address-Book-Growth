@@ -103,14 +103,3 @@ if __name__ == "__main__":
     df_internet = data['internet']
     df_gdp = data['gdp']
     df_lit = data['literacy']
-
-    # stat = get_access_to_electricity(df_elec, 'Afghanistan')
-    # print(stat)
-    # # stat = get_access_to_internet(df_internet, 'Afghanistan')
-    # print(stat)
-    # stat = get_gdp_per_capita(df_gdp, 'Afghanistan')
-    # print(stat)
-    stat = get_literacy_rate(df_lit, 'Afghanistan')
-    print(stat)
-
-    # print(df_lit.head())

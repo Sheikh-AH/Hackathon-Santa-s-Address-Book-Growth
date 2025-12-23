@@ -28,17 +28,18 @@
     </nav>
 
     <div class="container my-5">
-        <div class="chart-section">
-            <canvas id="myChart"></canvas>
-        </div>
-        <div class = "info-section">
-                <h2><img src={{flag_png}} alt={{flag_alt}}> Country Info: </h2>
-                <li>{{area}}</li>
-                <li>{{capital}}</li>
-                <li>{{languages}}</li>
-                <li>{{currencies}}</li>
-                <li>{{timezones}}</li>
-                
+        <div class="row g-4">
+            <div class="chart-section col-8">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class = "ice-box px-4 col-3 ms-5" style=" max-height: 400px;">
+                    <img id=cflag src={{flag_png}} alt={{flag_alt}}/>
+                    <li>{{area}}</li>
+                    <li>{{capital}}</li>
+                    <li>{{languages}}</li>
+                    <li>{{currencies}}</li>
+                    <li>{{timezones}}</li>
+            </div>       
         </div>
     </div>
 
