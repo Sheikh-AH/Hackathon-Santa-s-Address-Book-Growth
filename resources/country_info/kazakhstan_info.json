@@ -1,0 +1,25 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/kz.png",
+        "svg": "https://flagcdn.com/kz.svg",
+        "alt": "The flag of Kazakhstan has a turquoise field, at the center of which is a gold sun with thirty-two rays above a soaring golden steppe eagle. A thin vertical band displays a national ornamental pattern \u2014 koshkar-muiz \u2014 in gold near the hoist end."
+    },
+    "currencies": {
+        "KZT": {
+            "name": "Kazakhstani tenge",
+            "symbol": "\u20b8"
+        }
+    },
+    "capital": [
+        "Astana"
+    ],
+    "languages": {
+        "kaz": "Kazakh",
+        "rus": "Russian"
+    },
+    "area": 2724900.0,
+    "timezones": [
+        "UTC+05:00",
+        "UTC+06:00"
+    ]
+}
