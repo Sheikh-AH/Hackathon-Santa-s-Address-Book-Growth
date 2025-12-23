@@ -69,12 +69,49 @@ def get_maxmin_growth(df_pop: pd.DataFrame, country):
     return max_year, max_growth, min_year, min_growth
 
 
+def get_access_to_electricity(df_elec: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return proportion of population with access to electricity in most recent year."""
+    df = df_elec[df_elec['Entity'] == country]
+    df = df.sort_values('Year').tail(1)
+    return df['Access to electricity (% of population)'].values[0]
+
+
+def get_access_to_internet(df_internet: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return proportion of population that are using the internet in most recent year."""
+    df = df_internet[df_internet['Entity'] == country]
+    df = df.sort_values('Year').tail(1)
+    return df['Individuals using the Internet (% of population)'].values[0]
+
+
+def get_gdp_per_capita(df_gdp: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return GDP per capita for last 10 years."""
+    df = df_gdp[(df_gdp['Entity'] == country)].tail(10)
+    return df['GDP per capita']
+
+
+def get_literacy_rate(df_lit: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return literacy rate for most recent year."""
+    df = df_lit[df_lit['Entity'] == country]
+    df = df.sort_values('Year').tail(1)
+    return df['Literacy rate'].values[0]
+
+
 if __name__ == "__main__":
     load_dotenv()
     data = get_data_from_s3(ENV)
-    df_pop = get_data_of_country(data['population'], 'China')
-    a = get_5year_avg(df_pop, 'China')
-    s = get_single_year_growth(df_pop, 'China')
-    maxy, maxg, miny, ming = get_maxmin_growth(df_pop, 'China')
-    print(maxy, maxg, miny, ming)
-    print(a, s)
+    df_elec = data['electricity']
+    df_pop = data['population']
+    df_internet = data['internet']
+    df_gdp = data['gdp']
+    df_lit = data['literacy']
+
+    # stat = get_access_to_electricity(df_elec, 'Afghanistan')
+    # print(stat)
+    # # stat = get_access_to_internet(df_internet, 'Afghanistan')
+    # print(stat)
+    # stat = get_gdp_per_capita(df_gdp, 'Afghanistan')
+    # print(stat)
+    stat = get_literacy_rate(df_lit, 'Afghanistan')
+    print(stat)
+
+    # print(df_lit.head())
