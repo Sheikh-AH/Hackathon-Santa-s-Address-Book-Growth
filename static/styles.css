@@ -62,7 +62,7 @@ body{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.data-section{
+.data-section, .info-section{
   width: 40vh;
   height: 40vh;
   padding:2.5%;
@@ -70,6 +70,13 @@ body{
   max-width: 40vh;
   background-color: #146B3A;
 
+}
+
+.info-section img {
+  height: 30px;
+  width: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .chart-section{
