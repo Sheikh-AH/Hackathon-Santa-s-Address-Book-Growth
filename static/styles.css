@@ -36,12 +36,6 @@ svg {
   display: block;
 }
 
-.chart {
-  width: 70vh;
-  height: 70vh;
-}
-
-
 body{
   background-color: #004733;
   color:white;
@@ -49,7 +43,6 @@ body{
 }
 
 .chart-section {
-    width: 100%;
     height: 400px;
     border: 7px;
     border-style: dotted;
@@ -61,27 +54,9 @@ body{
     align-items: center;
 }
 
-.data-section, .info-section{
-  width: 40vh;
-  height: 40vh;
-  padding:2.5%;
-  flex-grow: 1;
-  max-width: 40vh;
-  background-color: #146B3A;
-
-}
-
-.info-section img {
-  height: 30px;
-  width: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
 .chart-section{
-  min-width: 40vh;
-  width:60vh;
-  height: 40vh;
+  min-height: 400px;
+  min-width: 400px;
   flex-grow: 1;
   border: 7px;
   border-style: dotted;
@@ -120,6 +95,19 @@ nav{
     color: #004060;
     backdrop-filter: blur(10px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ice-box li {
+    margin-top: 10px;
+    font-size: 90%;
+    margin-left: 10px;
+}
+.ice-box img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    margin-bottom: 5%;
 }
 
 .ice-box:hover {
