@@ -16,14 +16,7 @@ def get_country_info(name: str, fields: str) -> dict:
         fields (str): Comma-separated fields to retrieve.
 
     Returns:
-        dict: Country data if found, else None. Contains:
-            - 'area' (float): Area of the country in square kilometers.
-            - 'capital' (list): List of capital cities.
-            - 'currencies' (dict): Currencies used in the country.
-            - 'flags' (dict): URLs to flag images and alt text.
-            - 'languages' (dict): Languages spoken in the country.
-            - 'timezones' (list): List of timezones in the country.
-
+        dict: Country data if found, else None. 
     '''
     response = requests.get(URL.format(name=name, fields=fields), timeout=10)
     if response.status_code == 200:
