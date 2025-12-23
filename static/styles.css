@@ -42,12 +42,12 @@ svg {
   height: 70vh;
 }
 
+
 body{
   background-color: #004733;
   color:white;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
 
 .data{
   width:100%;
@@ -104,4 +104,10 @@ nav{
   top: -0.5vh;
   left:-0.5vh;
   border-radius: 50%;
+}
+
+.chart-tooltip{
+  background-image: url(sleigh.png);
+  width:1vh;
+  height:1vh;
 }

@@ -54,19 +54,24 @@
       </div>
     </footer>
 
-    <!-- Store Flask data as a JavaScript variable -->
+
+    
     <script>
         Chart.defaults.color = "#FFF"
         const labels = JSON.parse('{{ labels | tojson | safe }}');
         const chartData = JSON.parse('{{ data | tojson | safe }}');
-        const img = new Image();
-
+        let sleighImage = new Image()
+        sleighImage.src ="{{ url_for('static', filename='sleigh.png') }}";
+        sleighImage.width = 40;
+        sleighImage.height = 40;
         const data = {
             labels: labels,
             datasets: [{
                 label: 'Population ({{title}})',
                 backgroundColor: 'rgb(248, 178, 41)',
                 borderColor: 'rgb(248, 178, 41)',
+                
+                pointStyle: sleighImage,
                 pointRadius: 0,
                 data: chartData,
             }],
@@ -119,19 +124,30 @@
                         
                     }
                 },
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                    yAlign: "top",
+                    xAlign: "left"
+                },
                 plugins: {
-                legend: {
-                    display: false,
-                    labels: {
-                        font: {
-                            family: 'Georgia',
-                            size: 12,      
-                            style: 'normal',
-                            weight: 'bold',  
-                            lineHeight: 1.2, 
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
                         },
                     },
-                },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
             },
         
             }
@@ -141,6 +157,8 @@
             document.getElementById('myChart'),
             config
         );
+
+        
 
 
         // SNOW ANIMATION
