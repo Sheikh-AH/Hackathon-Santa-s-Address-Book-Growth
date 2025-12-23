@@ -89,6 +89,13 @@ def get_gdp_per_capita(df_gdp: pd.DataFrame, country: str) -> pd.DataFrame:
     return df['GDP per capita']
 
 
+def get_literacy_rate(df_lit: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return literacy rate for most recent year."""
+    df = df_lit[df_lit['Entity'] == country]
+    df = df.sort_values('Year').tail(1)
+    return df['Literacy rate'].values[0]
+
+
 if __name__ == "__main__":
     load_dotenv()
     data = get_data_from_s3(ENV)
@@ -99,12 +106,12 @@ if __name__ == "__main__":
     df_lit = data['literacy']
 
     # stat = get_access_to_electricity(df_elec, 'Afghanistan')
-    # print(f"Access to electricity: {stat}%")
-    # stat = get_access_to_internet(df_internet, 'Afghanistan')
-    # print(f"Access to internet  : {stat}%")
+    # print(stat)
+    # # stat = get_access_to_internet(df_internet, 'Afghanistan')
+    # print(stat)
     # stat = get_gdp_per_capita(df_gdp, 'Afghanistan')
     # print(stat)
     stat = get_literacy_rate(df_lit, 'Afghanistan')
-    print(f"Literacy rate: {stat}%")
+    print(stat)
 
     # print(df_lit.head())
