@@ -13,6 +13,7 @@
 </head>
 <body>
 
+
     <div class="topnav">
         <h1>Christmas Investigative Services</h1>
         
@@ -52,24 +53,27 @@
     <!-- Store Flask data as a JavaScript variable -->
     <script>
         Chart.defaults.color = "#FFF"
-        const labels = JSON.parse('{{ labels | tojson | safe }}');
-        const chartData = JSON.parse('{{ data | tojson | safe }}');
-        const img = new Image();
+        const populationInfo = JSON.parse('{{population_info | tojson | safe}}')
 
-        const data = {
-            labels: labels,
+        let sleighImage = new Image()
+        sleighImage.src ="{{ url_for('static', filename='sleigh.png') }}";
+        sleighImage.width = 40;
+        sleighImage.height = 40;
+
+        const populationData = {
+            labels: populationInfo.labels,
             datasets: [{
-                label: 'Population ({{title}})',
+                label: populationInfo.title,
                 backgroundColor: 'rgb(248, 178, 41)',
                 borderColor: 'rgb(248, 178, 41)',
                 pointRadius: 0,
-                data: chartData,
+                data: populationInfo.data,
             }],
         };
 
-        const config = {
+        const populationConfig = {
             type: 'line',
-            data: data,
+            data: populationData,
             options: {
                 layout: {
                     padding: {
@@ -133,8 +137,68 @@
         };
 
         const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
+            document.getElementById('populationChart'),
+            populationConfig
+        );
+
+
+        //literacy chart
+
+        const literacyInfo = JSON.parse('{{literacy_info | tojson | safe}}')
+
+        const literacyData = {
+            labels: literacyInfo.labels,
+            datasets: [{
+                label: "Literacy",
+                backgroundColor: ['#EA4630','#BB2528'],
+                borderColor: 'rgb(248, 178, 41)',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: literacyInfo.data,
+            }],
+        };
+
+        const literacyConfig = {
+            type: 'doughnut',
+            data: literacyData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const literacyChart = new Chart(
+            document.getElementById('literacyChart'),
+            literacyConfig
         );
 
 
