@@ -83,8 +83,8 @@ def get_access_to_internet(df_internet: pd.DataFrame, country: str) -> pd.DataFr
 
 
 def get_gdp_per_capita(df_gdp: pd.DataFrame, country: str) -> pd.DataFrame:
-    """Return GDP per capita for last 10 years."""
-    df = df_gdp[(df_gdp['Entity'] == country)].tail(10)
+    """Return GDP per capita for last 5 years."""
+    df = df_gdp[(df_gdp['Entity'] == country)].tail(5)
     return df['GDP per capita']
 
 

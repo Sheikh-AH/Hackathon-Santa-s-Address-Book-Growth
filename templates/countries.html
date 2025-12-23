@@ -47,6 +47,14 @@
         <div class="row g-4">
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="ice-box">
+                    <h5>Gift Demographic: Income</h5>
+                    <div style="height: 300px;">
+                        <canvas id="incomeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
                     <h5>Gift Demographic: Literacy</h5>
                     <div>
                         <canvas id="literacyChart"></canvas>
@@ -55,16 +63,10 @@
             </div>
             <div class="col-12 col-md-6 col-lg-3">
                 <div class="ice-box">
-                    <h5>Gift Demographic: Income</h5>
-                    <p>Income Bar Chart</p>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="ice-box">
                     <h5>Gift Demographic: Electricity</h5>
                     <div>
                         <canvas id="electricityChart"></canvas>
-                    </div>>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-3">
@@ -210,7 +212,8 @@
                 },
                 plugins: {
                     legend: {
-                        display: false,
+                        display: true,
+                        position: 'bottom',
                         labels: {
                             font: {
                                 family: 'Georgia',
@@ -269,7 +272,8 @@
                 },
                 plugins: {
                     legend: {
-                        display: false,
+                        display: true,
+                        position: 'bottom',
                         labels: {
                             font: {
                                 family: 'Georgia',
@@ -328,7 +332,8 @@
                 },
                 plugins: {
                     legend: {
-                        display: false,
+                        display: true,
+                        position: 'bottom',
                         labels: {
                             font: {
                                 family: 'Georgia',
@@ -353,6 +358,68 @@
             document.getElementById('electricityChart'),
             electricityConfig
         );
+
+        const incomeInfo = JSON.parse('{{ income_info | tojson | safe }}');
+
+        const incomeData = {
+            labels: incomeInfo.labels,
+            datasets: [{
+                label: incomeInfo.title,
+                data: incomeInfo.data,
+                backgroundColor: [
+                    '#EA4630',
+                    '#F8B229',
+                    '#4CAF50'
+                ],
+                borderRadius: 6
+            }]
+        };
+
+        const incomeConfig = {
+            type: 'bar',
+            data: incomeData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            font: {
+                                family: "Georgia",
+                                size: 14
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: "GDP per Capita (USD)",
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                family: "Georgia",
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        };
+
+        const incomeChart = new Chart(
+            document.getElementById('incomeChart'),
+            incomeConfig
+        );
+
 
         // SNOW ANIMATION
         let numSnow = 30
