@@ -15,27 +15,21 @@
     
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color: white;">Christmas Investigative Services</a>
+        <a class="navbar-brand">Christmas Investigative Services - {{ title }}</a>
         <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
         >
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav>
 
-    <div class="data">
-        <div class = "chart-section">
-            <canvas id="myChart" style="width: 100%;height: 100%; padding-right: 4%;"></canvas>
-        </div>
-        <div class = "data-section">
-                <h2>Year-on-Year Growth:</h2>
-                <p>{{growth_stats[0]}}</p>
-                <h2>5 Year Growth Trend: </h2>
-                <p>{{growth_stats[1]}}</p>
+    <div class="container my-5">
+        <div class="chart-section">
+            <canvas id="myChart"></canvas>
         </div>
         <div class = "info-section">
                 <h2><img src={{flag_png}} alt={{flag_alt}}> Country Info: </h2>
@@ -47,6 +41,40 @@
                 
         </div>
     </div>
+
+    <div class="container my-5">
+            <div class="ice-box px-4 mb-4">
+                <h5>Present Production Changes</h5>
+                <p>Population growth/shrink stats</p>
+            </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Literacy</h5>
+                    <p>Literacy donut</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Income</h5>
+                    <p>Income Bar Chart</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Electricity</h5>
+                    <p>Electricity donut</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Internet</h5>
+                    <p>Internet donut</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer class="text-center py-4 mt-5">
       <div class="container">
@@ -81,6 +109,8 @@
             type: 'line',
             data: data,
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 layout: {
                     padding: {
                         left: 30,
@@ -169,7 +199,6 @@
         }
         
         function createSnow(){
-            let id = null;
             const elem = document.body;
             const flake = document.createElement("div")
             flake.classList.add("snow")
@@ -191,7 +220,6 @@
         }
 
     </script>
-   
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
