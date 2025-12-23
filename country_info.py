@@ -1,10 +1,28 @@
 '''
 Helpers to fetch and format country data from the REST Countries API.
 '''
-
+import json
 import requests
 
 URL = "https://restcountries.com/v3.1/name/{name}?fullText=true&fields={fields}"
+
+
+def get_cached_country_info(filepath: str) -> dict:
+    '''
+    Retrieve cached country data from a local file.
+
+    Args:
+        name (str): The name of the country.
+        filepath (str): Path to the cached file.
+
+    Returns:
+        dict: Cached country data if found, else None.
+    '''
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return None
 
 
 def get_country_info(name: str, fields: str) -> dict:
@@ -64,17 +82,44 @@ def format_country_info(data: dict) -> dict:
     return info_lines
 
 
-def main() -> None:
+def cache_country_info(filepath: str, data: dict) -> None:
     '''
-    Example usage of the country info functions.
+    Cache country data to a local file.
+
+    Args:
+        filepath (str): Path to the cached file.
+        data (dict): Country data to cache.
     '''
-    country_name = "China"
-    fields = "capital,area,languages,currencies,flags,timezones"
-    data = get_country_info(country_name, fields)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=4)
+
+
+def country_info_main(country_name: str) -> dict:
+    '''
+    main function to handle get-format-cache process.
+
+    Args:
+        country_name (str): The name of the country.
+
+    Returns:
+        dict: Formatted country information.
+    '''
+    filename = f"{country_name.replace(' ', '_').lower()}_info.json"
+    filepath = f"resources/country_info/{filename}"
+    data = get_cached_country_info(filepath)
+
+    if data is None:
+        fields = "capital,area,languages,currencies,flags,timezones"
+        data = get_country_info(country_name, fields)
+        cache_country_info(filepath, data)
+        print(f"{country_name}fetched from API and cached.")
+
     formatted_info = format_country_info(data)
-    for line, value in formatted_info.items():
-        print(f"{line}: {value}")
+
+    return formatted_info
 
 
 if __name__ == "__main__":
-    main()
+    country_info = country_info_main("China")
+    for line, value in country_info.items():
+        print(f"{line}: {value}")

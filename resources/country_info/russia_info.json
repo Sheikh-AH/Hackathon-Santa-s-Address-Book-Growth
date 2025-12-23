@@ -1,0 +1,31 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/ru.png",
+        "svg": "https://flagcdn.com/ru.svg",
+        "alt": "The flag of Russia is composed of three equal horizontal bands of white, blue and red."
+    },
+    "currencies": {
+        "RUB": {
+            "name": "Russian ruble",
+            "symbol": "\u20bd"
+        }
+    },
+    "capital": [
+        "Moscow"
+    ],
+    "languages": {
+        "rus": "Russian"
+    },
+    "area": 17098246.0,
+    "timezones": [
+        "UTC+03:00",
+        "UTC+04:00",
+        "UTC+06:00",
+        "UTC+07:00",
+        "UTC+08:00",
+        "UTC+09:00",
+        "UTC+10:00",
+        "UTC+11:00",
+        "UTC+12:00"
+    ]
+}

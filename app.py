@@ -7,10 +7,7 @@ from flask import Flask, render_template
 import pandas as pd
 
 from population_reader import get_data_from_s3, get_data_of_country, get_single_year_growth, get_5year_avg
-from country_info import (
-    get_country_info,
-    format_country_info
-)
+from country_info import country_info_main
 
 app = Flask(__name__)
 
@@ -27,28 +24,25 @@ def country_page(country_name):
     data = get_data_of_country(df_population, country_name)
     growth = get_single_year_growth(df_population, country_name)
     avg_growth = get_5year_avg(df_population, country_name)
-
-    fields = "capital,area,languages,currencies,flags,timezones"
-    country_facts = get_country_info(country_name, fields)
-    country_facts_formatted = format_country_info(country_facts)
+    country_facts = country_info_main(country_name)
 
     return render_template('countries.html',
                            title=country_name,
                            labels=list(data["Year"]),
                            data=list(data["Population (historical)"]/1000000),
                            growth_stats=(growth, avg_growth),
-                           area=country_facts_formatted.get('area', 'N/A'),
-                           capital=country_facts_formatted.get(
+                           area=country_facts.get('area', 'N/A'),
+                           capital=country_facts.get(
                                'capital', 'N/A'),
-                           languages=country_facts_formatted.get(
+                           languages=country_facts.get(
                                'languages', 'N/A'),
-                           currencies=country_facts_formatted.get(
+                           currencies=country_facts.get(
                                'currencies', 'N/A'),
-                           timezones=country_facts_formatted.get(
+                           timezones=country_facts.get(
                                'timezones', 'N/A'),
-                           flag_png=country_facts_formatted.get(
+                           flag_png=country_facts.get(
                                'flag_png', 'N/A'),
-                           flag_alt=country_facts_formatted.get(
+                           flag_alt=country_facts.get(
                                'flag_alt', 'N/A')
                            )
 
