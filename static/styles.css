@@ -26,17 +26,14 @@
 .chart {
   width: 70vh;
   height: 70vh;
-<<<<<<< HEAD
 }
-=======
-}
+
 
 body{
   background-color: #004733;
   color:white;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
-
 
 .data{
   width:100%;
@@ -87,4 +84,9 @@ nav{
   left:-0.5vh;
   border-radius: 50%;
 }
->>>>>>> 403992538b1f486a91195c8a6a6da14b8326ead8
+
+.chart-tooltip{
+  background-image: url(sleigh.png);
+  width:1vh;
+  height:1vh;
+}

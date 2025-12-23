@@ -45,19 +45,24 @@
       </div>
     </footer>
 
-    <!-- Store Flask data as a JavaScript variable -->
+
+    
     <script>
         Chart.defaults.color = "#FFF"
         const labels = JSON.parse('{{ labels | tojson | safe }}');
         const chartData = JSON.parse('{{ data | tojson | safe }}');
-        const img = new Image();
-
+        let sleighImage = new Image()
+        sleighImage.src ="{{ url_for('static', filename='sleigh.png') }}";
+        sleighImage.width = 40;
+        sleighImage.height = 40;
         const data = {
             labels: labels,
             datasets: [{
                 label: 'Population ({{title}})',
                 backgroundColor: 'rgb(248, 178, 41)',
                 borderColor: 'rgb(248, 178, 41)',
+                
+                pointStyle: sleighImage,
                 pointRadius: 0,
                 data: chartData,
             }],
@@ -113,6 +118,8 @@
                 interaction: {
                     mode: 'index',
                     intersect: false,
+                    yAlign: "top",
+                    xAlign: "left"
                 },
                 plugins: {
                     legend: {
@@ -128,53 +135,9 @@
                         },
                     },
                     tooltip: {
-                        enabled: false,
+                        enabled: true,
                         position: 'nearest',
-                        external: function(context) {
-                            // Tooltip Element
-                            let tooltipEl = document.getElementById('chartjs-tooltip');
-
-                            // Create element on first render
-                            if (!tooltipEl) {
-                                tooltipEl = document.createElement('div');
-                                tooltipEl.id = 'chartjs-tooltip';
-                                tooltipEl.innerHTML = '<table></table>';
-                                document.body.appendChild(tooltipEl);
-                            }
-
-                            // Hide if no tooltip
-                            const tooltipModel = context.tooltip;
-                            if (tooltipModel.opacity === 0) {
-                                tooltipEl.style.opacity = 0;
-                                return;
-                            }
-
-                            // Set caret Position
-                            tooltipEl.classList.remove('above', 'below', 'no-transform');
-                            if (tooltipModel.yAlign) {
-                                tooltipEl.classList.add(tooltipModel.yAlign);
-                            } else {
-                                tooltipEl.classList.add('no-transform');
-                            }
-
-                            function getBody(bodyItem) {
-                                return bodyItem.lines;
-                            }
-
-                            
-
-                            const position = context.chart.canvas.getBoundingClientRect();
-                            const bodyFont = Chart.helpers.toFont(tooltipModel.options.bodyFont);
-
-                            // Display, position, and set styles for font
-                            tooltipEl.style.opacity = 1;
-                            tooltipEl.style.position = 'absolute';
-                            tooltipEl.style.left = position.left + window.pageXOffset + tooltipModel.caretX + 'px';
-                            tooltipEl.style.top = position.top + window.pageYOffset + tooltipModel.caretY + 'px';
-                            tooltipEl.style.font = bodyFont.string;
-                            tooltipEl.style.padding = tooltipModel.padding + 'px ' + tooltipModel.padding + 'px';
-                            tooltipEl.style.pointerEvents = 'none';
-                        }
+                        
                     }
             },
         
