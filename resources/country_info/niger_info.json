@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/ne.png",
+        "svg": "https://flagcdn.com/ne.svg",
+        "alt": "The flag of Niger features three equal horizontal bands of orange, white and green, with an orange circle centered in the white band."
+    },
+    "currencies": {
+        "XOF": {
+            "name": "West African CFA franc",
+            "symbol": "Fr"
+        }
+    },
+    "capital": [
+        "Niamey"
+    ],
+    "languages": {
+        "fra": "French"
+    },
+    "area": 1267000.0,
+    "timezones": [
+        "UTC+01:00"
+    ]
+}
