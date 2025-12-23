@@ -103,3 +103,5 @@ if __name__ == "__main__":
     df_internet = data['internet']
     df_gdp = data['gdp']
     df_lit = data['literacy']
+
+    print(get_literacy_rate(df_lit, "India"))

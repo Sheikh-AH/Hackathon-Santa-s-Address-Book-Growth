@@ -42,13 +42,6 @@ body{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-#cflag{
-  text-align: center;
-  max-width: 100%;
-  height: auto;
-  padding-bottom: 5%;
-}
-
 .chart-section {
     height: 400px;
     border: 7px;
@@ -102,6 +95,20 @@ nav{
     color: #004060;
     backdrop-filter: blur(10px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ice-box li {
+    margin-top: 10px;
+    font-size: 90%;
+    margin-left: 10px;
+    /* list-style-image: url(star.png); */
+}
+.ice-box img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    margin-bottom: 5%;
 }
 
 .ice-box:hover {
