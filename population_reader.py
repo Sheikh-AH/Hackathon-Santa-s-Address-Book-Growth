@@ -76,6 +76,13 @@ def get_access_to_electricity(df_elec: pd.DataFrame, country: str) -> pd.DataFra
     return df['Access to electricity (% of population)'].values[0]
 
 
+def get_access_to_internet(df_internet: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return proportion of population that are using the internet in most recent year."""
+    df = df_internet[df_internet['Entity'] == country]
+    df = df.sort_values('Year').tail(1)
+    return df['Individuals using the Internet (% of population)'].values[0]
+
+
 if __name__ == "__main__":
     load_dotenv()
     data = get_data_from_s3(ENV)
