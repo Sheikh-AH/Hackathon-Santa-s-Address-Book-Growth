@@ -2,3 +2,5 @@ Flask==3.1.2
 python-dotenv
 pylint
 pandas
+boto3
+mypy_boto3_s3
