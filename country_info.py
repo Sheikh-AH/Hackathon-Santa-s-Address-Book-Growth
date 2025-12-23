@@ -1,5 +1,9 @@
 '''
 Helpers to fetch and format country data from the REST Countries API.
+
+Resources:
+- REST Countries API: https://restcountries.com/
+- fields documentation: https://gitlab.com/restcountries/restcountries/-/blob/master/FIELDS.md
 '''
 import json
 import requests
