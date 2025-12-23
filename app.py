@@ -33,6 +33,7 @@ def country_page(country_name):
     literacy_rate = get_literacy_rate(df_literacy, country_name)
 
     return render_template('countries.html',
+                           title=country_name,
                            population_info={
                                "title": country_name,
                                "labels": list(data["Year"]),
