@@ -21,6 +21,7 @@ def home():
 
 @app.route('/countries/<country_name>')
 def country_page(country_name):
+    load_dotenv()
     Dataframes = get_data_from_s3(ENV)
     df_population = Dataframes['population']
     data = get_data_of_country(df_population, country_name)
@@ -50,9 +51,5 @@ def country_page(country_name):
 
 
 if __name__ == "__main__":
-
-    load_dotenv()
-    Dataframes = get_data_from_s3(ENV)
-    df_population = Dataframes['population']
 
     app.run(debug=True, host='0.0.0.0', port=5000)
