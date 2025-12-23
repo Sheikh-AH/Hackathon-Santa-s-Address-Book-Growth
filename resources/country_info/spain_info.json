@@ -1,0 +1,27 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/es.png",
+        "svg": "https://flagcdn.com/es.svg",
+        "alt": "The flag of Spain is composed of three horizontal bands of red, yellow and red, with the yellow band twice the height of the red bands. In the yellow band is the national coat of arms offset slightly towards the hoist side of center."
+    },
+    "currencies": {
+        "EUR": {
+            "name": "Euro",
+            "symbol": "\u20ac"
+        }
+    },
+    "capital": [
+        "Madrid"
+    ],
+    "languages": {
+        "spa": "Spanish",
+        "cat": "Catalan",
+        "eus": "Basque",
+        "glc": "Galician"
+    },
+    "area": 505992.0,
+    "timezones": [
+        "UTC",
+        "UTC+01:00"
+    ]
+}

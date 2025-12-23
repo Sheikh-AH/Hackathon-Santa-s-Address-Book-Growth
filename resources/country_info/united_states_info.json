@@ -1,0 +1,33 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/us.png",
+        "svg": "https://flagcdn.com/us.svg",
+        "alt": "The flag of the United States of America is composed of thirteen equal horizontal bands of red alternating with white. A blue rectangle, bearing fifty small five-pointed white stars arranged in nine rows where rows of six stars alternate with rows of five stars, is superimposed in the canton."
+    },
+    "currencies": {
+        "USD": {
+            "name": "United States dollar",
+            "symbol": "$"
+        }
+    },
+    "capital": [
+        "Washington, D.C."
+    ],
+    "languages": {
+        "eng": "English"
+    },
+    "area": 9525067.0,
+    "timezones": [
+        "UTC-12:00",
+        "UTC-11:00",
+        "UTC-10:00",
+        "UTC-09:00",
+        "UTC-08:00",
+        "UTC-07:00",
+        "UTC-06:00",
+        "UTC-05:00",
+        "UTC-04:00",
+        "UTC+10:00",
+        "UTC+12:00"
+    ]
+}

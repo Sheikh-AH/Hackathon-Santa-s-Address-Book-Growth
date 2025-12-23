@@ -1,0 +1,26 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/br.png",
+        "svg": "https://flagcdn.com/br.svg",
+        "alt": "The flag of Brazil has a green field with a large yellow rhombus in the center. Within the rhombus is a dark blue globe with twenty-seven small five-pointed white stars depicting a starry sky and a thin white convex horizontal band inscribed with the national motto 'Ordem e Progresso' across its center."
+    },
+    "currencies": {
+        "BRL": {
+            "name": "Brazilian real",
+            "symbol": "R$"
+        }
+    },
+    "capital": [
+        "Bras\u00edlia"
+    ],
+    "languages": {
+        "por": "Portuguese"
+    },
+    "area": 8515767.0,
+    "timezones": [
+        "UTC-05:00",
+        "UTC-04:00",
+        "UTC-03:00",
+        "UTC-02:00"
+    ]
+}
