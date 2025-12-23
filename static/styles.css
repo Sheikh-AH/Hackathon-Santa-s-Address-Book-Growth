@@ -55,9 +55,9 @@ body{
     align-items: center;
 }
 
-@media (min-width: 992px) {  /* lg breakpoint in Bootstrap */
+@media (min-width: 992px) {
     .chart-section {
-        max-width: 65%; /* only applies on large screens and above */
+        max-width: 65%;
     }
 }
 

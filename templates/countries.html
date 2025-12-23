@@ -7,7 +7,6 @@
       rel="stylesheet"
     />
 
-    <!-- Custom CSS: Your own styles go here -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>{{ title }} Overview</title>
 </head>
@@ -87,7 +86,6 @@
       </div>
     </footer>
 
-    <!-- Store Flask data as a JavaScript variable -->
     <script>
         Chart.defaults.color = "#FFF"
         const populationInfo = JSON.parse('{{population_info | tojson | safe}}')
@@ -359,6 +357,8 @@
             electricityConfig
         );
 
+        // income chart
+        
         const incomeInfo = JSON.parse('{{ income_info | tojson | safe }}');
 
         const incomeData = {
