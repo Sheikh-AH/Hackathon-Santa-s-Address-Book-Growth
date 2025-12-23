@@ -38,7 +38,6 @@ def get_single_year_growth(df_pop: pd.DataFrame, country: str) -> pd.DataFrame:
     """Provide summary statistics for growth."""
     df = df_pop[df_pop['Entity'] == country]
     df = df.sort_values('Year').tail(2)
-    print(df)
     last_year = df.iloc[-1]
     previous_year = df.iloc[-2]
     growth = last_year['Population (historical)'] - \
