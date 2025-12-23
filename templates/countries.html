@@ -29,7 +29,10 @@
 
     <div class="container my-5">
         <div class="chart-section">
-            <canvas id="myChart"></canvas>
+            <canvas id="populationChart"></canvas>
+        </div>
+        <div class="chart-section">
+            <canvas id="literacyChart"></canvas>
         </div>
         <div class = "info-section">
                 <h2><img src={{flag_png}} alt={{flag_alt}}> Country Info: </h2>
@@ -86,28 +89,29 @@
     
     <script>
         Chart.defaults.color = "#FFF"
-        const labels = JSON.parse('{{ labels | tojson | safe }}');
-        const chartData = JSON.parse('{{ data | tojson | safe }}');
+        const populationInfo = JSON.parse('{{population_info | tojson | safe}}')
+
         let sleighImage = new Image()
         sleighImage.src ="{{ url_for('static', filename='sleigh.png') }}";
         sleighImage.width = 40;
         sleighImage.height = 40;
-        const data = {
-            labels: labels,
+
+        const populationData = {
+            labels: populationInfo.labels,
             datasets: [{
-                label: 'Population ({{title}})',
+                label: populationInfo.title,
                 backgroundColor: 'rgb(248, 178, 41)',
                 borderColor: 'rgb(248, 178, 41)',
                 
                 pointStyle: sleighImage,
                 pointRadius: 0,
-                data: chartData,
+                data: populationInfo.data,
             }],
         };
 
-        const config = {
+        const populationConfig = {
             type: 'line',
-            data: data,
+            data: populationData,
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
@@ -184,8 +188,68 @@
         };
 
         const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
+            document.getElementById('populationChart'),
+            populationConfig
+        );
+
+
+        //literacy chart
+
+        const literacyInfo = JSON.parse('{{literacy_info | tojson | safe}}')
+
+        const literacyData = {
+            labels: literacyInfo.labels,
+            datasets: [{
+                label: "Literacy",
+                backgroundColor: ['#EA4630','#BB2528'],
+                borderColor: 'rgb(248, 178, 41)',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: literacyInfo.data,
+            }],
+        };
+
+        const literacyConfig = {
+            type: 'doughnut',
+            data: literacyData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const literacyChart = new Chart(
+            document.getElementById('literacyChart'),
+            literacyConfig
         );
 
         
