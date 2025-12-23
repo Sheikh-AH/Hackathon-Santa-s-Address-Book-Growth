@@ -12,16 +12,12 @@ function initMap() {
   paths.forEach(path => {
     if (!path.id) return;
 
-    // Set default fill color
-    path.style.fill = '#ececec';
-    path.style.cursor = 'pointer';
     path.style.transition = 'fill 0.2s ease';
 
     const label = path.getAttribute('name') || path.id;
 
     // Hover for tooltip and color change
     path.addEventListener('mouseenter', (e) => {
-      path.style.fill = '#4da3ff';
       tooltip.textContent = label;
       tooltip.style.display = 'block';
     });
@@ -32,7 +28,6 @@ function initMap() {
     });
 
     path.addEventListener('mouseleave', () => {
-      path.style.fill = '#ececec';
       tooltip.style.display = 'none';
     });
 
