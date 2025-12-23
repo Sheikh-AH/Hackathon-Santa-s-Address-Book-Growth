@@ -69,12 +69,23 @@ def get_maxmin_growth(df_pop: pd.DataFrame, country):
     return max_year, max_growth, min_year, min_growth
 
 
+def get_access_to_electricity(df_elec: pd.DataFrame, country: str) -> pd.DataFrame:
+    """Return proportion of population with access to electricity in most recent year."""
+    df = df_elec[df_elec['Entity'] == country]
+    df = df.sort_values('Year').tail(1)
+    return df['Access to electricity (% of population)'].values[0]
+
+
 if __name__ == "__main__":
     load_dotenv()
     data = get_data_from_s3(ENV)
-    df_pop = get_data_of_country(data['population'], 'China')
-    a = get_5year_avg(df_pop, 'China')
-    s = get_single_year_growth(df_pop, 'China')
-    maxy, maxg, miny, ming = get_maxmin_growth(df_pop, 'China')
-    print(maxy, maxg, miny, ming)
-    print(a, s)
+    df_elec = data['electricity']
+    df_pop = data['population']
+    df_internet = data['internet']
+
+    stat = get_access_to_electricity(df_elec, 'Afghanistan')
+    print(f"Access to electricity: {stat}%")
+    stat = get_access_to_internet(df_internet, 'Afghanistan')
+    print(f"Access to internet  : {stat}%")
+
+    print(df_internet.tail())
