@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/bd.png",
+        "svg": "https://flagcdn.com/bd.svg",
+        "alt": "The flag of Bangladesh has a dark green field bearing a large red circle that is offset slightly towards the hoist side of center."
+    },
+    "currencies": {
+        "BDT": {
+            "name": "Bangladeshi taka",
+            "symbol": "\u09f3"
+        }
+    },
+    "capital": [
+        "Dhaka"
+    ],
+    "languages": {
+        "ben": "Bengali"
+    },
+    "area": 147570.0,
+    "timezones": [
+        "UTC+06:00"
+    ]
+}
