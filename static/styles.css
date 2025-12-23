@@ -127,3 +127,24 @@ nav{
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5), inset 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
+.topnav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.topnav h1 {
+    margin: 0 0 10px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.search {
+    display: flex;
+    gap: 5px;
+}
+
+h1 {
+  text-align: center;
+}
