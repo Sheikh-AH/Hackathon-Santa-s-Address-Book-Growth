@@ -1,0 +1,25 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/iq.png",
+        "svg": "https://flagcdn.com/iq.svg",
+        "alt": "The flag of Iraq is composed of three equal horizontal bands of red, white and black. In the central white band are Arabic inscriptions in green."
+    },
+    "currencies": {
+        "IQD": {
+            "name": "Iraqi dinar",
+            "symbol": "\u0639.\u062f"
+        }
+    },
+    "capital": [
+        "Baghdad"
+    ],
+    "languages": {
+        "ara": "Arabic",
+        "arc": "Aramaic",
+        "ckb": "Sorani"
+    },
+    "area": 438317.0,
+    "timezones": [
+        "UTC+03:00"
+    ]
+}

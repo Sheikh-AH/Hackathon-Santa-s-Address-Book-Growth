@@ -1,0 +1,24 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/mg.png",
+        "svg": "https://flagcdn.com/mg.svg",
+        "alt": "The flag of Madagascar features a white vertical band on the hoist side that takes up about one-third the width of the field, and two equal horizontal bands of red and green adjoining the vertical band."
+    },
+    "currencies": {
+        "MGA": {
+            "name": "Malagasy ariary",
+            "symbol": "Ar"
+        }
+    },
+    "capital": [
+        "Antananarivo"
+    ],
+    "languages": {
+        "fra": "French",
+        "mlg": "Malagasy"
+    },
+    "area": 587041.0,
+    "timezones": [
+        "UTC+03:00"
+    ]
+}
