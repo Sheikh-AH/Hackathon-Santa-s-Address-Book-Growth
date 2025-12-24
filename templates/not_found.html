@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+
+<div class="topnav">
+        <h1>Uh Oh!</h1>
+        
+        <div class="search">
+            <form method="POST" action="{{url_for('search_country')}}">
+                <input type="text" id="searchInput" name="query" placeholder="Search Countries">
+                <button type="submit">🔎</button>
+            </form>
+        </div>
+
+        <h2>Something Went Wrong...</h2>
+        <p>{{error_message}}</p>
+    </div>
