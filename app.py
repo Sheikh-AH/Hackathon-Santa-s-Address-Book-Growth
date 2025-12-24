@@ -6,7 +6,7 @@ from flask import Flask, render_template
 
 import pandas as pd
 
-from population_reader import (get_data_from_s3, get_data_of_country, get_single_year_growth, get_5year_avg,
+from population_reader import (get_data_from_s3, get_data_of_country, get_single_year_growth, get_5year_avg, get_maxmin_growth,
                                get_literacy_rate, get_access_to_electricity, get_access_to_internet, get_gdp_per_capita)
 from country_info import country_info_main
 
@@ -36,6 +36,8 @@ def country_page(country_name):
     data = get_data_of_country(df_population, country_name)
     growth = get_single_year_growth(df_population, country_name)
     avg_growth = get_5year_avg(df_population, country_name)
+    max_year, max_growth, min_year, min_growth = get_maxmin_growth(
+        df_population, country_name)
     country_facts = country_info_main(country_name)
     literacy_rate = get_literacy_rate(df_literacy, country_name)
     internet_access = get_access_to_internet(df_internet, country_name)
@@ -70,7 +72,8 @@ def country_page(country_name):
                                "data": list(gdp_per_capita)
                            },
 
-                           growth_stats=(growth, avg_growth),
+                           growth_stats=(growth, avg_growth, max_year,
+                                         max_growth, min_year, min_growth),
                            area=country_facts.get('area', 'N/A'),
                            capital=country_facts.get(
                                'capital', 'N/A'),
