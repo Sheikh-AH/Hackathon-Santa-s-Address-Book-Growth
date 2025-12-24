@@ -58,6 +58,7 @@ def get_5year_avg(df_pop: pd.DataFrame, country: str) -> pd.DataFrame:
 def get_maxmin_growth(df_pop: pd.DataFrame, country):
     """Provide min/max growth stats for a country."""
     df = df_pop[df_pop['Entity'] == country].sort_values('Year')
+    df = df[df['Year'] >= 1900]
     df['Growth'] = df['Population (historical)'].diff()
 
     max_year = df.loc[df['Growth'].idxmax()]['Year']
@@ -104,4 +105,4 @@ if __name__ == "__main__":
     df_gdp = data['gdp']
     df_lit = data['literacy']
 
-    print(get_literacy_rate(df_lit, "India"))
+    print(get_access_to_electricity(df_elec, "India"))
