@@ -32,7 +32,7 @@ with open("resources/population.csv", "r") as file:
 # Template Endpoints (HTML Pages)
 
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template('index.html')
 
