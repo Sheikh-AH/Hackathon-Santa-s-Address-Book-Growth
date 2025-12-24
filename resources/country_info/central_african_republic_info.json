@@ -1,0 +1,24 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/cf.png",
+        "svg": "https://flagcdn.com/cf.svg",
+        "alt": "The flag of Central African Republic is composed of four equal horizontal bands of blue, white, green and yellow intersected at the center by a vertical red band of equal size as the horizontal bands. A yellow five-pointed star is situated on the hoist side of the blue band."
+    },
+    "currencies": {
+        "XAF": {
+            "name": "Central African CFA franc",
+            "symbol": "Fr"
+        }
+    },
+    "capital": [
+        "Bangui"
+    ],
+    "languages": {
+        "fra": "French",
+        "sag": "Sango"
+    },
+    "area": 622984.0,
+    "timezones": [
+        "UTC+01:00"
+    ]
+}
