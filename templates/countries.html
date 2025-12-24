@@ -456,7 +456,7 @@
         // SNOW ANIMATION
         let numSnow = 30
         for(let i = 0; i < numSnow; i++){
-            let randomTime = (Math.random() * 2000)
+            let randomTime = (Math.random() * 2500)
             setTimeout(createSnow, randomTime)
         }
         
@@ -471,11 +471,11 @@
             [
                 // keyframes
                 { transform: `translateX(${start_x}px) translateY(0px)` },
-                { transform: `translateX(${start_x + 100}px) translateY(1000px)` },
+                { transform: `translateX(${start_x + 100}px) translateY(1270px)` },
             ],
             {
                 // timing options
-                duration: 2000,
+                duration: 2500,
                 iterations: Infinity,
             },
             );
