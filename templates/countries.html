@@ -7,11 +7,11 @@
       rel="stylesheet"
     />
 
-    <!-- Custom CSS: Your own styles go here -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>{{ title }} Overview</title>
 </head>
 <body>
+
 
     <div class="topnav">
         <h1>Christmas Investigative Services</h1>
@@ -24,26 +24,83 @@
         </div>
     </div>
 
-    <div class="data">
-        <div class = "chart-section">
-            <canvas id="myChart" style="width: 100%;height: 100%; padding-right: 4%;"></canvas>
-        </div>
-        <div class = "data-section">
-                <h2>Year-on-Year Growth:</h2>
-                <p>{{growth_stats[0]}}</p>
-                <h2>5 Year Growth Trend: </h2>
-                <p>{{growth_stats[1]}}</p>
-        </div>
-        <div class = "info-section">
-                <h2><img src={{flag_png}} alt={{flag_alt}}> Country Info: </h2>
-                <li>{{area}}</li>
-                <li>{{capital}}</li>
-                <li>{{languages}}</li>
-                <li>{{currencies}}</li>
-                <li>{{timezones}}</li>
-                
+    <div class="container my-4">
+        <div class="row gy-4 d-flex align-items-start justify-content-between">
+            <div class="chart-section col-12 col-lg-8">
+                <canvas id="populationChart"></canvas>
+            </div>
+            <div id="cinfo" class="ice-box col-12 col-lg-4" style=" max-height: 400px;">
+                    <img id=cflag src={{flag_png}} alt={{flag_alt}}/>
+                    <li>{{area}}</li>
+                    <li>{{capital}}</li>
+                    <li>{{languages}}</li>
+                    <li>{{currencies}}</li>
+                    <li>{{timezones}}</li>
+            </div>       
         </div>
     </div>
+
+    <div class="container my-4">
+            <div class="ice-box px-4 mb-4">
+                <h5>Present Production Changes</h5>
+                <div class="row text-center g-4 mt-3">
+                    <div class="col-6 col-md-3">
+                        <img src="{{ url_for('static', filename='image1.png') }}" alt="Image 1" class="img-fluid mb-2">
+                        <p>Change in population = {{growth_stats[0]}}</p>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <img src="{{ url_for('static', filename='image2.png') }}" alt="Image 2" class="img-fluid mb-2">
+                        <p>5 year trend in Growth = {{growth_stats[1]}}</p>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <img src="{{ url_for('static', filename='image3.png') }}" alt="Image 3" class="img-fluid mb-2">
+                        <p>Max growth ({{growth_stats[2]}}): {{growth_stats[3]}}</p>
+                    </div>
+
+                    <div class="col-6 col-md-3">
+                        <img src="{{ url_for('static', filename='image4.png') }}" alt="Image 4" class="img-fluid mb-2">
+                        <p>Min growth ({{growth_stats[4]}}): {{growth_stats[5]}}</p>
+                    </div>
+                </div>
+            </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: GDP</h5>
+                    <div style="height: 300px;">
+                        <canvas id="incomeChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Literacy</h5>
+                    <div>
+                        <canvas id="literacyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Electricity</h5>
+                    <div>
+                        <canvas id="electricityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="ice-box">
+                    <h5>Gift Demographic: Internet</h5>
+                    <div>
+                        <canvas id="internetChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <footer class="text-center py-4 mt-5">
       <div class="container">
@@ -51,27 +108,30 @@
       </div>
     </footer>
 
-    <!-- Store Flask data as a JavaScript variable -->
     <script>
         Chart.defaults.color = "#FFF"
-        const labels = JSON.parse('{{ labels | tojson | safe }}');
-        const chartData = JSON.parse('{{ data | tojson | safe }}');
-        const img = new Image();
+        const populationInfo = JSON.parse('{{population_info | tojson | safe}}')
 
-        const data = {
-            labels: labels,
+        let sleighImage = new Image()
+        sleighImage.src ="{{ url_for('static', filename='sleigh.png') }}";
+        sleighImage.width = 40;
+        sleighImage.height = 40;
+
+        const populationData = {
+            labels: populationInfo.labels,
             datasets: [{
-                label: 'Population ({{title}})',
+                label: populationInfo.title,
                 backgroundColor: 'rgb(248, 178, 41)',
                 borderColor: 'rgb(248, 178, 41)',
                 pointRadius: 0,
-                data: chartData,
+                data: populationInfo.data,
+                pointStyle: sleighImage
             }],
         };
 
-        const config = {
+        const populationConfig = {
             type: 'line',
-            data: data,
+            data: populationData,
             options: {
                 layout: {
                     padding: {
@@ -116,27 +176,280 @@
                         
                     }
                 },
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                    yAlign: "top",
+                    xAlign: "left"
+                },
                 plugins: {
-                legend: {
-                    display: false,
-                    labels: {
-                        font: {
-                            family: 'Georgia',
-                            size: 12,      
-                            style: 'normal',
-                            weight: 'bold',  
-                            lineHeight: 1.2, 
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
                         },
                     },
-                },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
             },
         
             }
         };
 
         const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
+            document.getElementById('populationChart'),
+            populationConfig
+        );
+
+
+        //literacy chart
+
+        const literacyInfo = JSON.parse('{{literacy_info | tojson | safe}}')
+
+        const literacyData = {
+            labels: literacyInfo.labels,
+            datasets: [{
+                label: "Literacy",
+                backgroundColor: ['#599C5D','#c51d2b'],
+                borderColor: '#eeda67',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: literacyInfo.data,
+            }],
+        };
+
+        const literacyConfig = {
+            type: 'doughnut',
+            data: literacyData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const literacyChart = new Chart(
+            document.getElementById('literacyChart'),
+            literacyConfig
+        );
+
+        //internet chart
+    
+        const internetInfo = JSON.parse('{{internet_info | tojson | safe}}')
+
+        const internetData = {
+            labels: internetInfo.labels,
+            datasets: [{
+                label: internetInfo.title,
+                backgroundColor: ['#599C5D','#c51d2b'],
+                borderColor: '#eeda67',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: internetInfo.data,
+            }],
+        };
+
+        const internetConfig = {
+            type: 'doughnut',
+            data: internetData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const internetChart = new Chart(
+            document.getElementById('internetChart'),
+            internetConfig
+        );
+
+        // electricity chart
+
+        const electricityInfo = JSON.parse('{{electricity_info | tojson | safe}}')
+
+        const electricityData = {
+            labels: electricityInfo.labels,
+            datasets: [{
+                label: electricityInfo.title,
+                backgroundColor: ['#599C5D','#c51d2b'],
+                borderColor: '#eeda67',
+                
+                pointStyle: sleighImage,
+                pointRadius: 0,
+                data: electricityInfo.data,
+            }],
+        };
+
+        const electricityConfig = {
+            type: 'doughnut',
+            data: electricityData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 30,
+                        right: 30,
+                        top: 30,
+                        bottom: 30
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
+            },
+        
+            }
+        };
+
+        const electricityChart = new Chart(
+            document.getElementById('electricityChart'),
+            electricityConfig
+        );
+
+        // income chart
+
+        const incomeInfo = JSON.parse('{{ income_info | tojson | safe }}');
+
+        const incomeData = {
+            labels: incomeInfo.labels,
+            datasets: [{
+                label: incomeInfo.title,
+                data: incomeInfo.data,
+                backgroundColor: [
+                    '#468942'
+                ],
+                borderRadius: 6
+            }]
+        };
+
+        const incomeConfig = {
+            type: 'bar',
+            data: incomeData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            font: {
+                                family: "Georgia",
+                                size: 14
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: "GDP per Capita (USD)",
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            font: {
+                                family: "Georgia",
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true
+                    }
+                }
+            }
+        };
+
+        const incomeChart = new Chart(
+            document.getElementById('incomeChart'),
+            incomeConfig
         );
 
 

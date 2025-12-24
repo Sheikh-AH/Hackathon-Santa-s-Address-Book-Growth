@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/sa.png",
+        "svg": "https://flagcdn.com/sa.svg",
+        "alt": "The flag of Saudi Arabia has a green field, at the center of which is an Arabic inscription \u2014 the Shahada \u2014 in white above a white horizontal sabre with its tip pointed to the hoist side of the field."
+    },
+    "currencies": {
+        "SAR": {
+            "name": "Saudi riyal",
+            "symbol": "\u0631.\u0633"
+        }
+    },
+    "capital": [
+        "Riyadh"
+    ],
+    "languages": {
+        "ara": "Arabic"
+    },
+    "area": 2149690.0,
+    "timezones": [
+        "UTC+03:00"
+    ]
+}

@@ -58,6 +58,7 @@ def get_5year_avg(df_pop: pd.DataFrame, country: str) -> pd.DataFrame:
 def get_maxmin_growth(df_pop: pd.DataFrame, country):
     """Provide min/max growth stats for a country."""
     df = df_pop[df_pop['Entity'] == country].sort_values('Year')
+    df = df[df['Year'] >= 1900]
     df['Growth'] = df['Population (historical)'].diff()
 
     max_year = df.loc[df['Growth'].idxmax()]['Year']
@@ -83,8 +84,8 @@ def get_access_to_internet(df_internet: pd.DataFrame, country: str) -> pd.DataFr
 
 
 def get_gdp_per_capita(df_gdp: pd.DataFrame, country: str) -> pd.DataFrame:
-    """Return GDP per capita for last 10 years."""
-    df = df_gdp[(df_gdp['Entity'] == country)].tail(10)
+    """Return GDP per capita for last 5 years."""
+    df = df_gdp[(df_gdp['Entity'] == country)].tail(5)
     return df['GDP per capita']
 
 
@@ -104,13 +105,4 @@ if __name__ == "__main__":
     df_gdp = data['gdp']
     df_lit = data['literacy']
 
-    # stat = get_access_to_electricity(df_elec, 'Afghanistan')
-    # print(stat)
-    # # stat = get_access_to_internet(df_internet, 'Afghanistan')
-    # print(stat)
-    # stat = get_gdp_per_capita(df_gdp, 'Afghanistan')
-    # print(stat)
-    stat = get_literacy_rate(df_lit, 'Afghanistan')
-    print(stat)
-
-    # print(df_lit.head())
+    print(get_access_to_electricity(df_elec, "India"))

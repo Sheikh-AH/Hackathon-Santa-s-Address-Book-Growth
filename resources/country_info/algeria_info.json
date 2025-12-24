@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/dz.png",
+        "svg": "https://flagcdn.com/dz.svg",
+        "alt": "The flag of Algeria features two equal vertical bands of green and white. A five-pointed red star within a fly-side facing red crescent is centered over the two-color boundary."
+    },
+    "currencies": {
+        "DZD": {
+            "name": "Algerian dinar",
+            "symbol": "\u062f.\u062c"
+        }
+    },
+    "capital": [
+        "Algiers"
+    ],
+    "languages": {
+        "ara": "Arabic"
+    },
+    "area": 2381741.0,
+    "timezones": [
+        "UTC+01:00"
+    ]
+}

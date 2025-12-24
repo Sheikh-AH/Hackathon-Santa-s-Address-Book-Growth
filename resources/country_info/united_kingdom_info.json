@@ -1,0 +1,31 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/gb.png",
+        "svg": "https://flagcdn.com/gb.svg",
+        "alt": "The flag of the United Kingdom \u2014 the Union Jack \u2014 has a blue field. It features the white-edged red cross of Saint George superimposed on the diagonal red cross of Saint Patrick which is superimposed on the diagonal white cross of Saint Andrew."
+    },
+    "currencies": {
+        "GBP": {
+            "name": "British pound",
+            "symbol": "\u00a3"
+        }
+    },
+    "capital": [
+        "London"
+    ],
+    "languages": {
+        "eng": "English"
+    },
+    "area": 244376.0,
+    "timezones": [
+        "UTC-08:00",
+        "UTC-05:00",
+        "UTC-04:00",
+        "UTC-03:00",
+        "UTC-02:00",
+        "UTC",
+        "UTC+01:00",
+        "UTC+02:00",
+        "UTC+06:00"
+    ]
+}

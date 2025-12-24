@@ -31,16 +31,11 @@ body, html {
 }
 
 svg {
-  width: 100vw;
-  height: 100vh;
+  width: 90vw;
+  height: 90vh;
   display: block;
+  margin: auto;
 }
-
-.chart {
-  width: 70vh;
-  height: 70vh;
-}
-
 
 body{
   background-color: #004733;
@@ -48,47 +43,26 @@ body{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+
 .chart-section {
-    width: 100%;
     height: 400px;
     border: 7px;
     border-style: dotted;
     border-color: rgb(220,100,0);
-    box-shadow: 0px 0px 30px 30px rgba(255,100,0,.2) inset,
-                0px 0px 30px 30px rgba(255,100,0,.2);
+    box-shadow: 0px 0px 20px 20px rgba(255,100,0,.2) inset,
+                0px 0px 20px 20px rgba(255,100,0,.2);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.data-section, .info-section{
-  width: 40vh;
-  height: 40vh;
-  padding:2.5%;
-  flex-grow: 1;
-  max-width: 40vh;
-  background-color: #146B3A;
-
+@media (min-width: 992px) {
+    .chart-section {
+        max-width: 65%;
+    }
 }
 
-.info-section img {
-  height: 30px;
-  width: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
 
-.chart-section{
-  min-width: 40vh;
-  width:60vh;
-  height: 40vh;
-  flex-grow: 1;
-  border: 7px;
-  border-style: dotted;
-  border-color: rgb(220,100,0);
-  box-shadow: 0px 0px 30px 30px rgba(255,100,0,.2) inset, 0px 0px 30px 30px rgba(255,100,0,.2);
-  
-}
 
 nav{
   background-color: #004733;
@@ -111,6 +85,10 @@ nav{
   height:1vh;
 }
 
+#cinfo {
+  min-height: 400px;
+}
+
 .ice-box {
     background: linear-gradient(145deg, rgba(200, 240, 250, 0.8), rgba(180, 220, 250, 0.5));
     border: 2px solid rgba(255, 255, 255, 0.5);
@@ -120,6 +98,21 @@ nav{
     color: #004060;
     backdrop-filter: blur(10px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ice-box li {
+    margin-top: 10px;
+    font-size: 85%;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    max-height: 90%;
+}
+.ice-box img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+    margin-bottom: 5%;
 }
 
 .ice-box:hover {

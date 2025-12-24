@@ -1,0 +1,30 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/au.png",
+        "svg": "https://flagcdn.com/au.svg",
+        "alt": "The flag of Australia has a dark blue field. It features the flag of the United Kingdom \u2014 the Union Jack \u2014 in the canton, beneath which is a large white seven-pointed star. A representation of the Southern Cross constellation, made up of one small five-pointed and four larger seven-pointed white stars, is situated on the fly side of the field."
+    },
+    "currencies": {
+        "AUD": {
+            "name": "Australian dollar",
+            "symbol": "$"
+        }
+    },
+    "capital": [
+        "Canberra"
+    ],
+    "languages": {
+        "eng": "English"
+    },
+    "area": 7692024.0,
+    "timezones": [
+        "UTC+05:00",
+        "UTC+06:30",
+        "UTC+07:00",
+        "UTC+08:00",
+        "UTC+09:30",
+        "UTC+10:00",
+        "UTC+10:30",
+        "UTC+11:30"
+    ]
+}

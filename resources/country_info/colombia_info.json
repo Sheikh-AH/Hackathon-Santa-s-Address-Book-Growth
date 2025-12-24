@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/co.png",
+        "svg": "https://flagcdn.com/co.svg",
+        "alt": "The flag of Colombia is composed of three horizontal bands of yellow, blue and red, with the yellow band twice the height of the other two bands."
+    },
+    "currencies": {
+        "COP": {
+            "name": "Colombian peso",
+            "symbol": "$"
+        }
+    },
+    "capital": [
+        "Bogot\u00e1"
+    ],
+    "languages": {
+        "spa": "Spanish"
+    },
+    "area": 1141748.0,
+    "timezones": [
+        "UTC-05:00"
+    ]
+}

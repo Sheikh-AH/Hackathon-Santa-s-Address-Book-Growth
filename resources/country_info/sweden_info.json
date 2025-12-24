@@ -1,0 +1,23 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/se.png",
+        "svg": "https://flagcdn.com/se.svg",
+        "alt": "The flag of Sweden has a blue field with a large golden-yellow cross that extend to the edges of the field. The vertical part of this cross is offset towards the hoist side."
+    },
+    "currencies": {
+        "SEK": {
+            "name": "Swedish krona",
+            "symbol": "kr"
+        }
+    },
+    "capital": [
+        "Stockholm"
+    ],
+    "languages": {
+        "swe": "Swedish"
+    },
+    "area": 450295.0,
+    "timezones": [
+        "UTC+01:00"
+    ]
+}
