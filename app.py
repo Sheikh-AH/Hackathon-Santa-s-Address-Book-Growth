@@ -39,8 +39,8 @@ def home():
 
 @app.route('/countries/<country_name>')
 def country_page(country_name):
-    if country_name not in COUNTRIES:
-        return redirect(url_for('not_found'))
+    '''if country_name not in COUNTRIES:
+        return redirect(url_for('not_found'))'''
 
     load_dotenv()
     Dataframes = get_data_from_s3(ENV)
@@ -127,13 +127,13 @@ def search_country():
             return redirect(url_for('north_pole'))
 
         if country.lower() == search_query:
-            return redirect(url_for('country_page', country_name=country.replace(" ", "%20")))
+            return redirect(url_for('country_page', country_name=country))
 
         if search_query in country.lower():
             matches.append(country)
 
     if len(matches) == 1:
-        return redirect(url_for('country_page', country_name=matches[0].replace(" ", "%20")))
+        return redirect(url_for('country_page', country_name=matches[0]))
 
     if len(matches) > 1:
         error_message = "Multiple countries found: {}. Please be more specific.".format(
