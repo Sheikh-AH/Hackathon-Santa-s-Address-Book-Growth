@@ -13,6 +13,7 @@ from flask import (
 
 from population_reader import (get_data_from_s3, get_data_of_country, get_single_year_growth, get_5year_avg, get_maxmin_growth,
                                get_literacy_rate, get_access_to_electricity, get_access_to_internet, get_gdp_per_capita)
+
 from country_info import country_info_main
 
 app = Flask(__name__)
@@ -31,7 +32,7 @@ with open("resources/population.csv", "r") as file:
 # Template Endpoints (HTML Pages)
 
 
-@app.route('/')
+@app.route('/', methods=['POST'])
 def home():
     return render_template('index.html')
 
