@@ -1,0 +1,24 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/cl.png",
+        "svg": "https://flagcdn.com/cl.svg",
+        "alt": "The flag of Chile is composed of two equal horizontal bands of white and red, with a blue square of the same height as the white band superimposed in the canton. A white five-pointed star is centered in the blue square."
+    },
+    "currencies": {
+        "CLP": {
+            "name": "Chilean peso",
+            "symbol": "$"
+        }
+    },
+    "capital": [
+        "Santiago"
+    ],
+    "languages": {
+        "spa": "Spanish"
+    },
+    "area": 756102.0,
+    "timezones": [
+        "UTC-06:00",
+        "UTC-04:00"
+    ]
+}

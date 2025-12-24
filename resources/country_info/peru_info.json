@@ -1,0 +1,25 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/pe.png",
+        "svg": "https://flagcdn.com/pe.svg",
+        "alt": "The flag of Peru is composed of three equal vertical bands of red, white and red, with the national emblem centered in the white band."
+    },
+    "currencies": {
+        "PEN": {
+            "name": "Peruvian sol",
+            "symbol": "S/ "
+        }
+    },
+    "capital": [
+        "Lima"
+    ],
+    "languages": {
+        "aym": "Aymara",
+        "que": "Quechua",
+        "spa": "Spanish"
+    },
+    "area": 1285216.0,
+    "timezones": [
+        "UTC-05:00"
+    ]
+}
