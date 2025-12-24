@@ -149,3 +149,7 @@ h1 {
   height: 30px;
   font-size: 16px;
 }
+
+.northpole img {
+  object-fit: contain;
+}

@@ -9,7 +9,7 @@
 <body>
 
 <div class="topnav">
-        <h1>Uh Oh!</h1>
+        <h1>Congrats- you found the North Pole!</h1>
         
         <div class="search">
             <form method="POST" action="{{url_for('search_country')}}">
@@ -20,9 +20,10 @@
                 <button type="submit">🏠</button>
             </form>
         </div>
+    </div>
+        <img id=northpole src={{image_url}} alt={{image_alt}}/>
+    <div>
 
-        <h2>Something Went Wrong...</h2>
-        <p>{{error_message}}</p>
     </div>
 
 </body>

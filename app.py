@@ -110,14 +110,25 @@ def country_page(country_name):
                            )
 
 
+@app.route('/north_pole')
+def north_pole():
+    image_url = "/static/north_pole.png"
+    image_alt = "Image: welcome to the north pole!"
+    return render_template('north_pole.html', image_url=image_url, image_alt=image_alt)
+
+
 @app.route('/countries/search', methods=['POST'])
 def search_country():
     '''Note: validation for search query is required.'''
     search_query = request.form.get('query').strip().lower()
     matches = []
     for country in COUNTRIES:
+        if search_query == "north pole":
+            return redirect(url_for('north_pole'))
+
         if country.lower() == search_query:
             return redirect(url_for('country_page', country_name=country))
+
         if search_query in country.lower():
             matches.append(country)
 
