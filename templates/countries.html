@@ -123,6 +123,7 @@
                 borderColor: 'rgb(248, 178, 41)',
                 pointRadius: 0,
                 data: populationInfo.data,
+                pointStyle: sleighImage
             }],
         };
 
@@ -173,19 +174,30 @@
                         
                     }
                 },
+                interaction: {
+                    mode: 'index',
+                    intersect: false,
+                    yAlign: "top",
+                    xAlign: "left"
+                },
                 plugins: {
-                legend: {
-                    display: false,
-                    labels: {
-                        font: {
-                            family: 'Georgia',
-                            size: 12,      
-                            style: 'normal',
-                            weight: 'bold',  
-                            lineHeight: 1.2, 
+                    legend: {
+                        display: false,
+                        labels: {
+                            font: {
+                                family: 'Georgia',
+                                size: 12,      
+                                style: 'normal',
+                                weight: 'bold',  
+                                lineHeight: 1.2, 
+                            },
                         },
                     },
-                },
+                    tooltip: {
+                        enabled: true,
+                        position: 'nearest',
+                        
+                    }
             },
         
             }
