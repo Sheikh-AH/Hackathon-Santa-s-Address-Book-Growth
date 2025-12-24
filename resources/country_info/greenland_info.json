@@ -1,0 +1,26 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/gl.png",
+        "svg": "https://flagcdn.com/gl.svg",
+        "alt": ""
+    },
+    "currencies": {
+        "DKK": {
+            "name": "krone",
+            "symbol": "kr."
+        }
+    },
+    "capital": [
+        "Nuuk"
+    ],
+    "languages": {
+        "kal": "Greenlandic"
+    },
+    "area": 2166086.0,
+    "timezones": [
+        "UTC-04:00",
+        "UTC-03:00",
+        "UTC-01:00",
+        "UTC+00:00"
+    ]
+}

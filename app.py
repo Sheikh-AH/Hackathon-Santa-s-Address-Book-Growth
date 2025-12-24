@@ -127,13 +127,13 @@ def search_country():
             return redirect(url_for('north_pole'))
 
         if country.lower() == search_query:
-            return redirect(url_for('country_page', country_name=country))
+            return redirect(url_for('country_page', country_name=country.replace(" ", "%20")))
 
         if search_query in country.lower():
             matches.append(country)
 
     if len(matches) == 1:
-        return redirect(url_for('country_page', country_name=matches[0]))
+        return redirect(url_for('country_page', country_name=matches[0].replace(" ", "%20")))
 
     if len(matches) > 1:
         error_message = "Multiple countries found: {}. Please be more specific.".format(
