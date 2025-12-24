@@ -1,0 +1,25 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/mx.png",
+        "svg": "https://flagcdn.com/mx.svg",
+        "alt": "The flag of Mexico is composed of three equal vertical bands of green, white and red, with the national coat of arms centered in the white band."
+    },
+    "currencies": {
+        "MXN": {
+            "name": "Mexican peso",
+            "symbol": "$"
+        }
+    },
+    "capital": [
+        "Mexico City"
+    ],
+    "languages": {
+        "spa": "Spanish"
+    },
+    "area": 1964375.0,
+    "timezones": [
+        "UTC-08:00",
+        "UTC-07:00",
+        "UTC-06:00"
+    ]
+}

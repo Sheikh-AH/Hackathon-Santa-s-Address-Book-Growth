@@ -1,0 +1,32 @@
+{
+    "flags": {
+        "png": "https://flagcdn.com/w320/ps.png",
+        "svg": "https://flagcdn.com/ps.svg",
+        "alt": ""
+    },
+    "currencies": {
+        "EGP": {
+            "name": "Egyptian pound",
+            "symbol": "E\u00a3"
+        },
+        "ILS": {
+            "name": "Israeli new shekel",
+            "symbol": "\u20aa"
+        },
+        "JOD": {
+            "name": "Jordanian dinar",
+            "symbol": "JD"
+        }
+    },
+    "capital": [
+        "Ramallah",
+        "Jerusalem"
+    ],
+    "languages": {
+        "ara": "Arabic"
+    },
+    "area": 6220.0,
+    "timezones": [
+        "UTC+02:00"
+    ]
+}
